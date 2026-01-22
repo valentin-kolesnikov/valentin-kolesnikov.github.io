@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentin Kolesnikov | Python RSA</title>
+    <title>Valentin Kolesnikov | Like A Notepad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -18,13 +18,8 @@
         h1, h2, h3, .project-title { font-family: 'Dancing Script', cursive; font-weight: 700; }
         header { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: var(--header-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-border); min-height: 80px; box-sizing: border-box;}
         .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-color); }
-        .brand img { 
-            height: 45px; 
-            width: auto; /* Ширина подстроится автоматически */
-            object-fit: contain; 
-            aspect-ratio: 3/2; /* Пропорция 1536/1024 = 1.5 */
-            filter: drop-shadow(0 0 100px var(--bg-glow)); 
-        }
+        /* Image fix */
+        .brand img { height: 45px; width: auto; object-fit: contain; aspect-ratio: 3/2; filter: drop-shadow(0 0 100px var(--bg-glow)); }
         .brand h1 { margin: 0; font-size: 2rem; white-space: nowrap; }
         .menu-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 6px; padding: 5px; }
         .menu-btn span { width: 30px; height: 2px; background-color: var(--text-color); transition: 0.3s; }
@@ -46,32 +41,10 @@
         .content p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px; font-family: 'Segoe UI', sans-serif; }
         .btn-github { display: inline-block; padding: 15px 30px; border: 1px solid var(--accent-color); color: var(--accent-color); text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; font-weight: bold; font-family: 'Segoe UI', sans-serif;}
         .btn-github:hover { background: var(--bg-glow); border-color: var(--bg-glow); color: #000; box-shadow: 0 0 20px var(--bg-glow); }
-        .back-link { 
-            display: inline-flex; /* Используем flex для лучшего выравнивания */
-            align-items: center;
-            gap: 8px; /* Расстояние между стрелкой и текстом */
-            margin-bottom: 20px; 
-            color: var(--accent-color); 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-family: 'Segoe UI', sans-serif;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавная анимация */
-            padding: 8px 12px;
-            border-radius: 8px;
-            margin-left: -12px; /* Компенсация padding, чтобы текст остался на той же визуальной линии */
-        }
-
-        /* Эффекты при наведении */
-        .back-link:hover { 
-            transform: translateX(-5px); /* Сдвиг влево */
-            color: var(--bg-glow); /* Цвет меняется на голубой */
-            text-shadow: 0 0 8px rgba(0, 163, 255, 0.4); /* Легкое свечение текста */
-        }
-
-        /* Дополнительно: чтобы стрелка двигалась чуть активнее текста (параллакс эффект) */
-        .back-link:hover::first-letter {
-            display: inline-block;
-        }
+        
+        /* Back Animation */
+        .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: 600; font-family: 'Segoe UI', sans-serif; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); padding: 8px 12px; border-radius: 8px; margin-left: -12px; }
+        .back-link:hover { transform: translateX(-5px); color: var(--bg-glow); text-shadow: 0 0 8px rgba(0, 163, 255, 0.4); background: rgba(255, 255, 255, 0.03); }
     </style>
 </head>
 <body>
@@ -83,11 +56,8 @@
             <button class="menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
             <a href="index.html" class="brand"><img src="Images/MainIcon.png" alt="Logo" width="68" height="45"><h1>Valentin Kolesnikov</h1></a>
         </div>
-        <!-- Кнопка добавлена -->
         <div style="display: flex; gap: 10px;">
-            <!-- Новая кнопка языка -->
             <button class="theme-btn" onclick="toggleLanguage()" id="header-lang-btn">EN</button>
-            <!-- Кнопка темы -->
             <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
         </div>
     </header>
@@ -106,53 +76,50 @@
     <main>
         <a href="index.html" class="back-link" data-i18n="backBtn">&larr; Back to Home</a>
         <article class="project-detail">
-            <h2 class="project-title">Python RSA</h2>
-            <div class="project-meta">Security • Cryptography • Algorithms</div>
+            <h2 class="project-title">Like A Notepad</h2>
+            <div class="project-meta">Productivity • Python • GUI Application</div>
             <div class="content">
-                <p data-i18n="desc1">A custom implementation of the RSA (Rivest–Shamir–Adleman) public-key cryptosystem. This project explores the mathematical foundations of modern web security.</p>
-                <p data-i18n="desc2">It includes key generation (public and private), encryption of messages, and decryption processes, providing a transparent view into how secure data transmission works.</p>
+                <p data-i18n="desc1">A lightweight and efficient text editor designed for speed and simplicity. Built with Python, it mirrors the classic functionality of standard notepads but with a cleaner codebase.</p>
+                <p data-i18n="desc2">Features include creating, opening, and saving text files, as well as essential editing tools. It serves as a practical example of building desktop GUI applications.</p>
             </div>
-            <a href="https://github.com/valentin-kolesnikov/PythonRSA" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
+            <a href="https://github.com/valentin-kolesnikov/LikeANotepad" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
         </article>
     </main>
 
     <script>
         function toggleMenu() { document.getElementById('navigation').classList.toggle('active'); document.getElementById('overlay').classList.toggle('active'); document.querySelector('.menu-btn').classList.toggle('active'); }
-        /* Добавлена функция темы */
         function toggleTheme() { document.body.classList.toggle('light-theme'); }
+        
         const translations = {
-            en: { themeBtn: "Theme", backBtn: "← Back to Home", githubBtn: "View on GitHub", desc1: "A custom implementation of the RSA public-key cryptosystem. Explores mathematical foundations of security.", desc2: "Includes key generation, encryption, and decryption, demonstrating how secure data transmission works." },
-            ru: { themeBtn: "Тема", backBtn: "← На Главную", githubBtn: "Смотреть на GitHub", desc1: "Кастомная реализация криптосистемы RSA. Исследует математические основы современной безопасности.", desc2: "Включает генерацию ключей, шифрование и дешифрование, показывая, как работает безопасная передача данных." }
+            en: { 
+                themeBtn: "Theme", 
+                backBtn: "← Back to Home", 
+                githubBtn: "View on GitHub", 
+                desc1: "A lightweight and efficient text editor designed for speed and simplicity. Built with Python, it mirrors the classic functionality of standard notepads.", 
+                desc2: "Features include creating, opening, and saving text files. It serves as a practical example of building desktop GUI applications." 
+            },
+            ru: { 
+                themeBtn: "Тема", 
+                backBtn: "← На Главную", 
+                githubBtn: "Смотреть на GitHub", 
+                desc1: "Легкий и эффективный текстовый редактор, созданный для скорости и простоты. Написан на Python и повторяет классический функционал блокнотов.", 
+                desc2: "Функции включают создание, открытие и сохранение текстовых файлов. Это практический пример создания GUI-приложений для рабочего стола." 
+            }
         };
-        // 1. Инициализация переменной (по умолчанию английский)
+
         let currentLang = 'en';
 
-        // 2. Функция переключения и применения языка
         function toggleLanguage() {
-            // Если вызов идет не при загрузке, а по клику -> переключаем язык
-            // Но если мы просто хотим применить текущий (например, при старте), логику можно адаптировать,
-            // но для совместимости оставим "переключатель".
-            
             currentLang = currentLang === 'en' ? 'ru' : 'en';
-            
-            // Сохраняем выбор
             localStorage.setItem('valentin_lang', currentLang);
-            
-            // Применяем изменения
             applyTranslations();
         }
 
-        // Вспомогательная функция для обновления текста на странице
         function applyTranslations() {
-            // Обновляем текст на кнопке в шапке
             const headerBtn = document.getElementById('header-lang-btn');
             if (headerBtn) headerBtn.textContent = currentLang.toUpperCase();
-
-            // Обновляем текст в мобильном меню
             const menuDisplay = document.getElementById('lang-display');
             if (menuDisplay) menuDisplay.textContent = currentLang.toUpperCase();
-
-            // Переводим все тексты на странице
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[currentLang] && translations[currentLang][key]) {
@@ -161,19 +128,10 @@
             });
         }
 
-        // --- ВАЖНО: Логика при загрузке страницы ---
-        
-        // Проверяем, какой язык был сохранен
         const savedLang = localStorage.getItem('valentin_lang');
-
-        // Если сохранен Русский
         if (savedLang === 'ru') {
-            // Так как по умолчанию у нас 'en', вызываем toggleLanguage, 
-            // чтобы он переключил на 'ru' и всё перевел.
             toggleLanguage();
         } else {
-            // Если сохранен Английский (или ничего не сохранено),
-            // просто убеждаемся, что кнопки отображают 'EN'
             if (document.getElementById('header-lang-btn')) {
                 document.getElementById('header-lang-btn').textContent = 'EN';
             }

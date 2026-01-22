@@ -84,6 +84,7 @@
         <a href="youtube.html">YouTube Explorer</a>
         <a href="rps.html">Rock Paper Scissors</a>
         <a href="rsa.html">Python RSA</a>
+        <a href="notepad.html">Like A Notepad</a>
         <div style="margin-top:auto; border-top:1px solid var(--card-border);">
             <button class="nav-link" onclick="toggleLanguage()">Lang: <span id="lang-display">EN</span></button>
         </div>
@@ -120,6 +121,13 @@
                 </div>
                 <div class="arrow">&rarr;</div>
             </a>
+            <a href="notepad.html" class="nav-card">
+                <div>
+                    <h3>Like A Notepad</h3>
+                    <p data-i18n="notepadShort">Simple desktop text editor built with Python.</p>
+                </div>
+                <div class="arrow">&rarr;</div>
+            </a>
         </section>
     </main>
 
@@ -135,8 +143,8 @@
         function toggleMenu() { document.getElementById('navigation').classList.toggle('active'); document.getElementById('overlay').classList.toggle('active'); document.querySelector('.menu-btn').classList.toggle('active'); }
         function toggleTheme() { document.body.classList.toggle('light-theme'); }
         const translations = {
-            en: { themeBtn: "Theme", home: "Home", aboutText: "Welcome. I am Valentin Kolesnikov. I specialize in Python development, algorithms, and data analysis tools. Explore my key projects below to see my code in action.", ytShort: "Deep data analysis tool for YouTube content.", rpsShort: "Advanced implementation of the classic game.", rsaShort: "Custom implementation of RSA encryption." },
-            ru: { themeBtn: "Тема", home: "Главная", aboutText: "Приветствую. Я Валентин Колесников. Я специализируюсь на разработке Python, алгоритмах и инструментах анализа данных. Изучите мои ключевые проекты ниже.", ytShort: "Инструмент глубокого анализа данных YouTube.", rpsShort: "Продвинутая реализация классической игры.", rsaShort: "Кастомная реализация шифрования RSA." }
+            en: { themeBtn: "Theme", home: "Home", aboutText: "Welcome. I am Valentin Kolesnikov. I specialize in Python development, algorithms, and data analysis tools. Explore my key projects below to see my code in action.", ytShort: "Deep data analysis tool for YouTube content.", rpsShort: "Advanced implementation of the classic game.", rsaShort: "Custom implementation of RSA encryption.", notepadShort: "Simple desktop text editor built with Python." },
+            ru: { themeBtn: "Тема", home: "Главная", aboutText: "Приветствую. Я Валентин Колесников. Я специализируюсь на разработке Python, алгоритмах и инструментах анализа данных. Изучите мои ключевые проекты ниже.", ytShort: "Инструмент глубокого анализа данных YouTube.", rpsShort: "Продвинутая реализация классической игры.", rsaShort: "Кастомная реализация шифрования RSA.", notepadShort: "Простой текстовый редактор на Python." }
         };
         // 1. Инициализация переменной (по умолчанию английский)
         let currentLang = 'en';
