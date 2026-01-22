@@ -6,6 +6,7 @@
     <title>Valentin Kolesnikov | Rock Paper Scissors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="Images/MainIcon.png">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
@@ -19,20 +20,20 @@
             <button class="menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
             <a href="index.html" class="brand"><img src="Images/MainIcon.png" alt="Logo" width="68" height="45"><h1>Valentin Kolesnikov</h1></a>
         </div>
-    </header>
-
-    <nav class="navigation" id="navigation">
-        <a href="index.html">Home</a>
-        <a href="youtube.html">YouTube Explorer</a>
-        <a href="rps.html">Rock Paper Scissors</a>
-        <a href="rsa.html">Python RSA</a>
-        <a href="notepad.html">Like A Notepad</a>
         <div class="nav-footer">
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display">EN</span>
             </button>
             <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
         </div>
+    </header>
+
+    <nav class="navigation" id="navigation">
+        <a href="youtube.html">YouTube Explorer</a>
+        <a href="rps.html">Rock Paper Scissors</a>
+        <a href="rsa.html">Python RSA</a>
+        <a href="notepad.html">Like A Notepad</a>
+        <a href="index.html" data-i18n="home">About me</a>
     </nav>
 
     <main>
@@ -47,5 +48,6 @@
             <a href="https://github.com/valentin-kolesnikov/RockPaperScissors" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
         </article>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ const translations = {
         themeBtn: "Theme",
         backBtn: "← Back to Home",
         githubBtn: "View on GitHub",
-        home: "Home",
+        home: "About me",
         
         aboutText: "Welcome. I am Valentin Kolesnikov. I specialize in Python development, algorithms, and data analysis tools. Explore my key projects below to see my code in action.",
         ytShort: "Deep data analysis tool for YouTube content.",
@@ -30,7 +30,7 @@ const translations = {
         themeBtn: "Тема",
         backBtn: "← На Главную",
         githubBtn: "Смотреть на GitHub",
-        home: "Главная",
+        home: "Обо мне",
 
         aboutText: "Приветствую. Я Валентин Колесников. Я специализируюсь на разработке Python, алгоритмах и инструментах анализа данных. Изучите мои ключевые проекты ниже.",
         ytShort: "Инструмент глубокого анализа данных YouTube.",
@@ -101,6 +101,112 @@ const phrases = [
     "Data Analysis Tools.",
     "Cryptography."
 ];
+
+const pageCache = {};
+
+// Функция предзагрузки страницы
+async function preloadPage(url) {
+    if (pageCache[url]) return;
+    try {
+        const res = await fetch(url);
+        if (res.ok) {
+            const text = await res.text();
+            pageCache[url] = text;
+        }
+    } catch (e) {
+        console.warn('Preload failed for:', url);
+    }
+}
+
+// Функция загрузки и отображения страницы
+async function loadContent(url, pushState = true) {
+    // Если страницы нет в кэше, пробуем загрузить
+    if (!pageCache[url]) {
+        await preloadPage(url);
+    }
+
+    const html = pageCache[url];
+    if (!html) {
+        window.location.href = url; // Fallback: если не удалось загрузить AJAX, идем обычно
+        return;
+    }
+
+    // Парсим HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    const newMain = doc.querySelector('main');
+    const currentMain = document.querySelector('main');
+
+    if (newMain && currentMain) {
+        // Анимация исчезновения
+        currentMain.style.opacity = '0';
+
+        setTimeout(() => {
+            // Подмена контента
+            currentMain.innerHTML = newMain.innerHTML;
+            document.title = doc.title;
+            
+            // Обновляем URL
+            if (pushState) {
+                history.pushState({ path: url }, '', url);
+            }
+
+            // Повторная инициализация скриптов
+            applyTranslations(); // Перевод
+            
+            // Перезапуск эффекта наклона карточек (если есть VanillaTilt)
+            if (typeof VanillaTilt !== 'undefined') {
+                const tilts = document.querySelectorAll('[data-tilt]');
+                if (tilts.length > 0) VanillaTilt.init(tilts);
+            }
+
+            // Скролл вверх
+            window.scrollTo(0, 0);
+
+            // Анимация появления
+            currentMain.style.opacity = '1';
+        }, 300); // Время должно совпадать с CSS transition
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Находим все ссылки на сайте и предзагружаем их
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+            preloadPage(href);
+        }
+    });
+
+    // 2. Делегирование событий клика (чтобы работало и для новых ссылок после подгрузки)
+    document.body.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        
+        // Проверяем, что клик был по внутренней ссылке .html
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+                e.preventDefault(); // Отменяем стандартный переход
+                
+                // Закрываем меню, если оно открыто
+                const nav = document.getElementById('navigation');
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+
+                loadContent(href);
+            }
+        }
+    });
+
+    // 3. Обработка кнопок "Назад" / "Вперед" в браузере
+    window.addEventListener('popstate', () => {
+        const path = location.pathname.split('/').pop() || 'index.html';
+        loadContent(path, false);
+    });
+});
 
 // let phraseIndex = 0;
 // let charIndex = 0;

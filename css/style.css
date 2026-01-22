@@ -70,7 +70,7 @@ header {
 .menu-btn.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .theme-btn { background: transparent; color: var(--text-color); border: 1px solid var(--accent-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
-.theme-btn:hover { background: var(--bg-glow); border-color: var(--bg-glow); color: #000; box-shadow: 0 0 15px var(--bg-glow); }
+.theme-btn:hover { background: var(--bg-glow); border-color: var(--bg-glow); color: #000; box-shadow: 0 0 25px var(--bg-glow); }
 
 
 .navigation { position: fixed; top: 0; left: 0; width: 260px; height: 100%; background-color: var(--menu-bg); transform: translateX(-100%); transition: transform 0.3s ease-in-out; padding-top: 80px; z-index: 999; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.5); }
@@ -82,7 +82,7 @@ header {
 .overlay.active { opacity: 1; visibility: visible; }
 
 
-main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; transition: opacity 0.3s ease-in-out;}
 
 
 .about-section { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
@@ -144,17 +144,14 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     -moz-osx-font-smoothing: grayscale;
 }
 .nav-footer {
-    padding: 20px;
-    border-top: 1px solid var(--card-border);
-    
     display: flex;     
     justify-content: left; 
-    gap: 60px;   
+    gap: 10px;
 }
 
 
 .nav-footer .theme-btn {
-    min-width: 80px;
+    min-width: 75px;
 }
 
 
