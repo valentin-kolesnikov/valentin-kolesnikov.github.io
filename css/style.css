@@ -46,7 +46,7 @@ header {
     left: 0;
     width: 100%; 
     
-    z-index: 1000;
+    z-index: 1001;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,12 +73,12 @@ header {
 .theme-btn:hover { background: var(--bg-glow); border-color: var(--bg-glow); color: #000; box-shadow: 0 0 25px var(--bg-glow); }
 
 
-.navigation { position: fixed; top: 0; left: 0; width: 260px; height: 100%; background-color: var(--menu-bg); transform: translateX(-100%); transition: transform 0.3s ease-in-out; padding-top: 80px; z-index: 999; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.5); }
+.navigation { position: fixed; top: 0; left: 0; width: 260px; height: 100%; background-color: var(--menu-bg); transform: translateX(-100%); transition: transform 0.3s ease-in-out; padding-top: 90px; z-index: 1000; display: flex; flex-direction: column; box-shadow: 5px 0 20px rgba(0,0,0,0.5); }
 .navigation.active { transform: translateX(0); }
 .navigation a, .navigation button.nav-link { display: block; padding: 15px 25px; color: var(--text-color); text-decoration: none; font-size: 1.1rem; transition: 0.2s; border: none; background: none; text-align: left; cursor: pointer; font-family: 'Segoe UI', sans-serif; width: 100%; box-sizing: border-box; }
 .navigation a:hover, .navigation button.nav-link:hover { background: rgba(255,255,255,0.05); color: var(--bg-glow); padding-left: 35px; border-left: 3px solid var(--bg-glow); }
 
-.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 998; backdrop-filter: blur(3px); }
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 999; backdrop-filter: blur(3px); }
 .overlay.active { opacity: 1; visibility: visible; }
 
 
@@ -239,6 +239,34 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
     }
 }
 
+.nav-card:active {
+    transform: scale(0.98) translateZ(0) !important; 
+
+    opacity: 0.9;
+
+    transition: transform 0.05s ease-out;
+}
+
+.back-link:active {
+    transform: scale(0.95) translateX(-5px);
+    color: var(--bg-glow);
+    transition: transform 0.05s ease-out;
+}
+
+.menu-btn:active, 
+.theme-btn:active,
+.btn-github:active {
+    transform: scale(0.90);
+    transition: transform 0.05s;
+}
+
+.fly-away {
+    /* Сдвигаем влево на 100% ширины экрана + еще чуть-чуть */
+    transform: translateX(-120vw) !important; 
+    opacity: 0;
+    /* ease-in значит "разгоняясь к концу" - эффект пули */
+    transition: all 0.6s ease-in !important; 
+}
 
 /* .cursor {
     display: inline-block;

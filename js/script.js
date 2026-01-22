@@ -208,6 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function goHome(event) {
+    event.preventDefault(); // Отменяем мгновенный переход
+    
+    // Находим кнопку, на которую нажали
+    const btn = event.currentTarget;
+    
+    // Добавляем класс, который запускает анимацию в CSS
+    btn.classList.add('fly-away');
+    
+    // Ждем 500мс (пока кнопка улетит), потом переходим
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 500);
+}
+
 // let phraseIndex = 0;
 // let charIndex = 0;
 // let isDeleting = false;
