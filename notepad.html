@@ -19,10 +19,6 @@
             <button class="menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
             <a href="index.html" class="brand"><img src="Images/MainIcon.png" alt="Logo" width="68" height="45"><h1>Valentin Kolesnikov</h1></a>
         </div>
-        <div style="display: flex; gap: 10px;">
-            <button class="theme-btn" onclick="toggleLanguage()" id="header-lang-btn">EN</button>
-            <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
-        </div>
     </header>
 
     <nav class="navigation" id="navigation">
@@ -31,8 +27,11 @@
         <a href="rps.html">Rock Paper Scissors</a>
         <a href="rsa.html">Python RSA</a>
         <a href="notepad.html">Like A Notepad</a>
-        <div style="margin-top:auto; border-top:1px solid var(--card-border);">
-            <button class="nav-link" onclick="toggleLanguage()">Lang: <span id="lang-display">EN</span></button>
+        <div class="nav-footer">
+            <button class="theme-btn" onclick="toggleLanguage()">
+                <span id="lang-display">EN</span>
+            </button>
+            <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
         </div>
     </nav>
 

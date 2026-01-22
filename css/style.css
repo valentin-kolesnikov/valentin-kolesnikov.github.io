@@ -40,7 +40,24 @@ html, body { margin: 0; padding: 0; width: 100%; min-height: 100vh; font-family:
 h1, h2, h3, .project-title { font-family: 'Dancing Script', cursive; font-weight: 700; }
 
 
-header { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background-color: var(--header-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-border); min-height: 80px; box-sizing: border-box; }
+header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--card-border);
+    min-height: 80px;
+    box-sizing: border-box;
+}
+
 .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-color); }
 .brand img { height: 45px; width: auto; object-fit: contain; aspect-ratio: 3/2; filter: drop-shadow(0 0 100px var(--bg-glow)); }
 .brand h1 { margin: 0; font-size: 2rem; white-space: nowrap; }
@@ -65,7 +82,7 @@ header { position: sticky; top: 0; z-index: 1000; display: flex; justify-content
 .overlay.active { opacity: 1; visibility: visible; }
 
 
-main { flex: 1; padding: 50px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 100%; box-sizing: border-box; }
 
 
 .about-section { text-align: center; margin-bottom: 60px; position: relative; z-index: 1; }
@@ -193,6 +210,38 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 ::-webkit-scrollbar-thumb:hover {
     background: var(--bg-glow); 
 }
+
+/* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ === */
+@media (max-width: 600px) {
+    /* 1. Уменьшаем боковые отступы шапки, чтобы дать больше места контенту */
+    header {
+        padding: 15px 15px; 
+    }
+
+    /* 2. Уменьшаем размер имени */
+    .brand h1 {
+        font-size: 1.4rem; /* Было 2rem, стало меньше */
+    }
+
+    /* 3. Чуть уменьшаем логотип, чтобы сохранить пропорции */
+    .brand img {
+        height: 35px;
+        width: auto;
+    }
+
+    /* 4. Уменьшаем расстояние между кнопкой меню и логотипом */
+    header > div:first-child {
+        gap: 10px !important;
+    }
+}
+
+/* Для совсем маленьких экранов (например, старые iPhone SE или Galaxy Fold) */
+@media (max-width: 370px) {
+    .brand h1 {
+        font-size: 1.2rem;
+    }
+}
+
 
 /* .cursor {
     display: inline-block;
