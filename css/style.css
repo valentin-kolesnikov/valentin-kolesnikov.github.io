@@ -1,5 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+/* Импортируем Corinthia и Marck Script (как запасной вариант для кириллицы) */
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Marck+Script&display=swap');
 
 :root { 
     --bg-dark: #000000; 
@@ -208,31 +209,25 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
     background: var(--bg-glow); 
 }
 
-/* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ === */
 @media (max-width: 600px) {
-    /* 1. Уменьшаем боковые отступы шапки, чтобы дать больше места контенту */
     header {
         padding: 15px 15px; 
     }
 
-    /* 2. Уменьшаем размер имени */
     .brand h1 {
-        font-size: 1.4rem; /* Было 2rem, стало меньше */
+        font-size: 1.4rem;
     }
 
-    /* 3. Чуть уменьшаем логотип, чтобы сохранить пропорции */
     .brand img {
         height: 35px;
         width: auto;
     }
 
-    /* 4. Уменьшаем расстояние между кнопкой меню и логотипом */
     header > div:first-child {
         gap: 10px !important;
     }
 }
 
-/* Для совсем маленьких экранов (например, старые iPhone SE или Galaxy Fold) */
 @media (max-width: 370px) {
     .brand h1 {
         font-size: 1.2rem;
@@ -261,15 +256,13 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 }
 
 .fly-away {
-    /* Сдвигаем влево на 100% ширины экрана + еще чуть-чуть */
     transform: translateX(-120vw) !important; 
     opacity: 0;
-    /* ease-in значит "разгоняясь к концу" - эффект пули */
     transition: all 0.6s ease-in !important; 
 }
 
 .content a {
-    color: #89CFF0; /* Нежно-голубой цвет ссылок */
+    color: #89CFF0;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -282,34 +275,27 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 .inline-code {
     padding: 2px 6px;
     border-radius: 4px;
-    border: 1px solid var(--accent-color); /* Обводка акцентным цветом */
-    background: rgba(160, 186, 204, 0.1); /* Легкий фон */
+    border: 1px solid var(--accent-color); 
+    background: rgba(160, 186, 204, 0.1);
     color: var(--text-color);
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 0.9em;
 }
 
 h1, h2, h3 {
-    scroll-margin-top: 110px; /* Высота меню + небольшой отступ */
+    scroll-margin-top: 110px;
 }
 
-/* --- 2. Разделительные линии --- */
-/* Линия только под H1 */
 h1 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding-bottom: 15px;
     margin-bottom: 25px;
 }
 
-
-
-/* У H2 линий нет (как и требовалось) */
 h2 {
     border-bottom: none;
 }
 
-/* --- 3. Стилизация галочек (Blue background, White check) --- */
-/* Убираем стандартные маркеры списка для чек-листа */
 ul.checklist {
     list-style-type: none;
     padding-left: 5px;
@@ -321,7 +307,6 @@ ul.checklist li {
     margin-bottom: 12px;
 }
 
-/* Базовый стиль квадратика (скрываем стандартный, рисуем свой) */
 ul.checklist input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -333,17 +318,15 @@ ul.checklist input[type="checkbox"] {
     cursor: default;
     position: relative;
     margin-right: 15px;
-    opacity: 1; /* Чтобы disabled не был бледным */
+    opacity: 1;
     flex-shrink: 0;
 }
 
-/* Активное состояние: ГОЛУБОЙ ФОН */
 ul.checklist input[type="checkbox"]:checked {
-    background-color: #00A3FF; /* Голубой цвет */
+    background-color: #00A3FF;
     border-color: #00A3FF;
 }
 
-/* Рисуем БЕЛУЮ галочку */
 ul.checklist input[type="checkbox"]:checked::after {
     content: '';
     position: absolute;
@@ -357,24 +340,22 @@ ul.checklist input[type="checkbox"]:checked::after {
 }
 
 .banner-container {
-    text-align: left; /* Выравнивание по левому краю */
+    text-align: left;
     margin-bottom: 20px;
 }
 
 .responsive-banner {
-    max-width: 100%;    /* Картинка никогда не будет шире экрана */
-    height: auto;       /* Пропорции сохраняются */
+    max-width: 100%;
+    height: auto;
     display: block;     
-    margin-left: 20px;  /* "Начинается немного слева" (отступ от края) */
+    margin-left: 20px; 
     
-    /* Опционально: скругление углов, если нужно */
     border-radius: 8px; 
 }
 
-/* Для мобильных устройств можно уменьшить отступ */
 @media (max-width: 600px) {
     .responsive-banner {
-        margin-left: 5px; /* Меньший отступ на телефонах */
+        margin-left: 5px;
     }
 }
 
@@ -383,6 +364,24 @@ ul.checklist input[type="checkbox"]:checked::after {
     padding-bottom: 0;
     margin-bottom: 0;
 }
+
+:lang(ru) h1, 
+:lang(ru) h2, 
+:lang(ru) h3, 
+:lang(ru) .project-title,
+:lang(ru) .brand h1 {
+    font-family: 'Marck Script', cursive;
+
+    font-weight: 400; 
+    
+    line-height: 1.2;
+}
+
+:lang(ru) .brand h1 {
+    font-size: 2.3rem;
+    margin-top: 5px;
+}
+
 /* .cursor {
     display: inline-block;
     background-color: var(--bg-glow);
