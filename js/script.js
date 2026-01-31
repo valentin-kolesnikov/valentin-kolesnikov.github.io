@@ -180,49 +180,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Делегирование событий клика (чтобы работало и для новых ссылок после подгрузки)
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('a');
+        if (!link) return; // Если клик не по ссылке, выходим
         
-        // Проверяем, что клик был по внутренней ссылке .html
-        if (link) {
-            const href = link.getAttribute('href');
-            if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
-                e.preventDefault(); // Отменяем стандартный переход
-                
-                // Закрываем меню, если оно открыто
+        const href = link.getAttribute('href');
+        if (!href) return; // Если нет href, выходим
+
+        // СЦЕНАРИЙ 1: Переход на другую страницу (.html)
+        // (Ваш старый код для подгрузки страниц)
+        if (href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+            e.preventDefault();
+            
+            const nav = document.getElementById('navigation');
+            if (nav && nav.classList.contains('active')) {
+                toggleMenu();
+            }
+            loadContent(href);
+        }
+
+        // СЦЕНАРИЙ 2: Якорная ссылка внутри страницы (#section)
+        // (НОВЫЙ КОД для починки навигации)
+        else if (href.startsWith('#')) {
+            e.preventDefault(); // Запрещаем браузеру "думать" и перезагружать
+            
+            const targetId = href.substring(1); // Убираем решетку
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Закрываем меню, если кликнули из меню
                 const nav = document.getElementById('navigation');
-                if (nav.classList.contains('active')) {
+                if (nav && nav.classList.contains('active')) {
                     toggleMenu();
                 }
 
-                loadContent(href);
+                // Плавная прокрутка к элементу
+                // Учитывает scroll-margin-top, который мы задали в CSS
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                
+                // Аккуратно меняем URL в строке браузера без перезагрузки
+                history.pushState(null, null, href);
             }
         }
     });
-
-    // 3. Обработка кнопок "Назад" / "Вперед" в браузере
-    window.addEventListener('popstate', () => {
-        const path = location.pathname.split('/').pop() || 'index.html';
-        loadContent(path, false);
-    });
-});
-
-function goHome(event) {
-    event.preventDefault(); // Отменяем мгновенный переход
-    
-    // Находим кнопку, на которую нажали
-    const btn = event.currentTarget;
-    
-    // Добавляем класс, который запускает анимацию в CSS
-    btn.classList.add('fly-away');
-    
-    // Ждем 500мс (пока кнопка улетит), потом переходим
-    setTimeout(() => {
-        window.location.href = 'index.html';
-    }, 500);
-}
-
+})
 // let phraseIndex = 0;
 // let charIndex = 0;
 // let isDeleting = false;
