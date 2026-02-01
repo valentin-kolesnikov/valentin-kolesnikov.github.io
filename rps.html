@@ -34,6 +34,13 @@
         <a href="rsa.html">Python RSA</a>
         <a href="notepad.html">Like A Notepad</a>
         <a href="index.html" data-i18n="home">About me</a>
+
+        <div class="nav-mobile-controls">
+            <button class="theme-btn" onclick="toggleLanguage()">
+                <span id="lang-display-mobile">EN</span>
+            </button>
+            <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
+        </div>
     </nav>
 
     <main>
@@ -48,6 +55,11 @@
             <a href="https://github.com/valentin-kolesnikov/RockPaperScissors" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
         </article>
     </main>
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </body>
 </html>

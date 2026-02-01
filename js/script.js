@@ -370,6 +370,9 @@ function applyTranslations() {
     const menuDisplay = document.getElementById('lang-display');
     if (menuDisplay) menuDisplay.textContent = currentLang.toUpperCase();
 
+    const mobileDisplay = document.getElementById('lang-display-mobile');
+    if (mobileDisplay) mobileDisplay.textContent = currentLang.toUpperCase();
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang] && translations[currentLang][key]) {
@@ -377,6 +380,7 @@ function applyTranslations() {
         }
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('valentin_lang');
@@ -513,6 +517,27 @@ function goHome(e) {
         }, 600);
     }
 }
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+    }
+});
 // let phraseIndex = 0;
 // let charIndex = 0;
 // let isDeleting = false;

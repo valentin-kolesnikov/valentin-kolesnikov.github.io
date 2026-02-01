@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
-/* Импортируем Corinthia и Marck Script (как запасной вариант для кириллицы) */
 @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Marck+Script&display=swap');
 
 :root { 
@@ -70,7 +69,24 @@ header {
 .menu-btn.active span:nth-child(2) { opacity: 0; }
 .menu-btn.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-.theme-btn { background: transparent; color: var(--text-color); border: 1px solid var(--accent-color); padding: 5px 15px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
+.theme-btn { 
+    background: transparent; 
+    color: var(--text-color); 
+    border: 1px solid var(--accent-color); 
+    
+    display: flex;             
+    align-items: center; 
+    justify-content: center;   
+    
+    height: 38px;              
+    border-radius: 19px;       
+    min-width: 75px;           
+    padding: 0 15px;           
+
+    cursor: pointer; 
+    transition: 0.3s; 
+    font-family: 'Segoe UI', sans-serif; 
+}
 .theme-btn:hover { background: var(--bg-glow); border-color: var(--bg-glow); color: #000; box-shadow: 0 0 25px var(--bg-glow); }
 
 
@@ -148,11 +164,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     display: flex;     
     justify-content: left; 
     gap: 10px;
-}
-
-
-.nav-footer .theme-btn {
-    min-width: 75px;
 }
 
 
@@ -381,6 +392,115 @@ ul.checklist input[type="checkbox"]:checked::after {
     font-size: 2.3rem;
     margin-top: 5px;
 }
+
+.nav-mobile-controls {
+    display: none;
+}
+
+@media (max-width: 477px) {
+    header {
+        padding: 15px 15px; 
+    }
+
+    header .nav-footer {
+        display: none !important;
+    }
+
+    .brand h1 {
+        font-size: 1.4rem;
+    }
+
+    .brand img {
+        height: 35px;
+        width: auto;
+    }
+
+    header > div:first-child {
+        gap: 10px !important;
+    }
+
+    .nav-mobile-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        
+        margin-top: 10px;
+        padding: 20px 25px;
+        border-top: 1px solid var(--card-border);
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    :lang(ru) .brand h1 {
+        font-size: 1.6rem !important;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 600px) {
+    :lang(ru) .brand h1 {
+        font-size: 1.6rem !important;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 370px) {
+    :lang(ru) .brand h1 {
+        font-size: 1.3rem !important;
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;            
+    left: 50%;               
+    transform: translateX(-50%) translateY(100px); 
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;     
+    
+    background: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    z-index: 990;           
+    backdrop-filter: blur(5px);
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    opacity: 0;
+    pointer-events: none;    
+}
+
+
+.back-to-top.active {
+    transform: translateX(-50%) translateY(0); 
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+.back-to-top:hover {
+    background: var(--bg-glow);
+    border-color: var(--bg-glow);
+    color: #000;            
+    box-shadow: 0 0 20px var(--bg-glow);
+    transform: translateX(-50%) translateY(-5px); 
+}
+
+@media (max-width: 600px) {
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+    }
+}
+
 
 /* .cursor {
     display: inline-block;
