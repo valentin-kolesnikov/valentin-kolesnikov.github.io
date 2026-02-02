@@ -1,15 +1,12 @@
-
-
 const translations = {
     en: {
         brandName: "Valentin Kolesnikov",
-        // --- Navigation & Common ---
+
         themeBtn: "Theme",
         backBtn: "← Back to Home",
         githubBtn: "View on GitHub",
-        home: "About me",
+        home: "About Me",
         
-        // --- Index Page (Existing) ---
         aboutText: "Welcome. I am Valentin Kolesnikov. I specialize in Python development, algorithms, and data analysis tools. Explore my key projects below to see my code in action.",
         ytShort: "Deep data analysis tool for YouTube content.",
         rpsShort: "Advanced implementation of the classic game.",
@@ -25,7 +22,6 @@ const translations = {
         notepadDesc1: "A lightweight and efficient text editor designed for speed and simplicity. Built with Python, it mirrors the classic functionality of standard notepads but with a cleaner codebase.",
         notepadDesc2: "Features include creating, opening, and saving text files, as well as essential editing tools. It serves as a practical example of building desktop GUI applications.",
 
-        // --- YouTube Explorer Page (NEW) ---
         ye_meta: "Main Project • Python • Data Analysis",
         ye_title_main: "YouTube Explorer",
         ye_intro: "<strong>YouTube Explorer</strong> is a console-based Python tool for programmatic exploration of YouTube content using <strong>YouTube Data API v3</strong> (with OAuth 2.0 support), <strong>Return YouTube Dislike API</strong>, and <strong>YouTube Transcript API</strong>",
@@ -175,7 +171,7 @@ const translations = {
     },
     ru: {
         brandName: "Валентин Колесников",
-        // --- Navigation & Common ---
+
         themeBtn: "Тема",
         backBtn: "← На Главную",
         githubBtn: "Смотреть на GitHub",
@@ -345,7 +341,6 @@ const translations = {
     }
 };
 
-
 let currentLang = 'en';
 
 function toggleMenu() {
@@ -366,13 +361,10 @@ function toggleLanguage() {
 
 function applyTranslations() {
     document.documentElement.setAttribute('lang', currentLang);
-
     const menuDisplay = document.getElementById('lang-display');
     if (menuDisplay) menuDisplay.textContent = currentLang.toUpperCase();
-
     const mobileDisplay = document.getElementById('lang-display-mobile');
     if (mobileDisplay) mobileDisplay.textContent = currentLang.toUpperCase();
-
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang] && translations[currentLang][key]) {
@@ -381,6 +373,9 @@ function applyTranslations() {
     });
 }
 
+window.addEventListener('popstate', (e) => {
+    loadContent(window.location.href, false);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('valentin_lang');
@@ -392,142 +387,106 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('header-lang-btn').textContent = 'EN';
         }
     }
-});
-
-const phrases = [
-    "Python Development.",
-    "Algorithms.",
-    "Data Analysis Tools.",
-    "Cryptography."
-];
-
-const pageCache = {};
-
-async function preloadPage(url) {
-    if (pageCache[url]) return;
-    try {
-        const res = await fetch(url);
-        if (res.ok) {
-            const text = await res.text();
-            pageCache[url] = text;
-        }
-    } catch (e) {
-        console.warn('Preload failed for:', url);
-    }
-}
-
-async function loadContent(url, pushState = true) {
-    if (!pageCache[url]) {
-        await preloadPage(url);
-    }
-
-    const html = pageCache[url];
-    if (!html) {
-        window.location.href = url;
-        return;
-    }
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
     
-    const newMain = doc.querySelector('main');
-    const currentMain = document.querySelector('main');
-
-    if (newMain && currentMain) {
-        currentMain.style.opacity = '0';
-
-        setTimeout(() => {
-            currentMain.innerHTML = newMain.innerHTML;
-            document.title = doc.title;
-            
-            if (pushState) {
-                history.pushState({ path: url }, '', url);
-            }
-
-            applyTranslations();
-            
-            if (typeof VanillaTilt !== 'undefined') {
-                const tilts = document.querySelectorAll('[data-tilt]');
-                if (tilts.length > 0) VanillaTilt.init(tilts);
-            }
-
-            window.scrollTo(0, 0);
-
-            currentMain.style.opacity = '1';
-        }, 300);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
-            preloadPage(href);
-        }
-    });
-
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('a');
         if (!link) return;
-        
+
         const href = link.getAttribute('href');
         if (!href) return;
 
         if (href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
             e.preventDefault();
-            
             const nav = document.getElementById('navigation');
             if (nav && nav.classList.contains('active')) {
                 toggleMenu();
             }
             loadContent(href);
-        }
-
-        else if (href.startsWith('#')) {
+        } else if (href.startsWith('#')) {
             e.preventDefault();
-            
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
-            
             if (targetElement) {
                 const nav = document.getElementById('navigation');
                 if (nav && nav.classList.contains('active')) {
                     toggleMenu();
                 }
-
                 targetElement.scrollIntoView({ behavior: 'smooth' });
-                
                 history.pushState(null, null, href);
             }
         }
     });
-})
+});
+
+async function loadContent(url, pushState = true) {
+    try {
+        const res = await fetch(url);
+        if (res.ok) {
+            const html = await res.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newMain = doc.querySelector('main');
+            const currentMain = document.querySelector('main');
+
+            if (newMain && currentMain) {
+                currentMain.style.opacity = '0';
+                setTimeout(() => {
+                    currentMain.innerHTML = newMain.innerHTML;
+                    document.title = doc.title;
+                    
+                    if (pushState) history.pushState({ path: url }, '', url);
+                    
+                    applyTranslations();
+                    
+                    if (typeof VanillaTilt !== 'undefined') {
+                        const tilts = document.querySelectorAll('[data-tilt]');
+                        if (tilts.length > 0) VanillaTilt.init(tilts);
+                    }
+                    
+                    window.scrollTo(0, 0);
+                    currentMain.style.opacity = '1';
+                }, 250);
+            } else {
+                window.location.href = url;
+            }
+        } else {
+            window.location.href = url;
+        }
+    } catch (e) {
+        window.location.href = url;
+    }
+}
 
 function goHome(e) {
     e.preventDefault();
-    
+    e.stopPropagation();
+
     const link = e.target.closest('.back-link');
-    
+    const main = document.querySelector('main');
+
     if (link) {
+        // 1. Анимация кнопки (улетает)
         link.classList.add('fly-away');
-        
+
+        // 2. Анимация экрана (затемняется сразу же)
+        if (main) {
+            main.style.opacity = '0';
+        }
+
+        // 3. Ждем 300мс (время полета кнопки и затемнения) и грузим Главную
         setTimeout(() => {
-            window.location.href = link.getAttribute('href');
-        }, 600);
+            // Вместо history.back() используем прямой переход
+            loadContent('index.html'); 
+        }, 50);
     }
 }
 
 function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('backToTop');
-
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 400) {
@@ -538,39 +497,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-// let phraseIndex = 0;
-// let charIndex = 0;
-// let isDeleting = false;
-// const typeSpeed = 100;
-// const deleteSpeed = 50;
-// const pauseTime = 2000;
-
-// function typeWriter() {
-//     const element = document.getElementById('typewriter');
-//     if (!element) return; // Защита, если элемента нет на странице
-
-//     const currentPhrase = phrases[phraseIndex];
-
-//     if (isDeleting) {
-//         element.textContent = currentPhrase.substring(0, charIndex - 1);
-//         charIndex--;
-//     } else {
-//         element.textContent = currentPhrase.substring(0, charIndex + 1);
-//         charIndex++;
-//     }
-
-//     let delay = isDeleting ? deleteSpeed : typeSpeed;
-
-//     if (!isDeleting && charIndex === currentPhrase.length) {
-//         delay = pauseTime; // Пауза после завершения фразы
-//         isDeleting = true;
-//     } else if (isDeleting && charIndex === 0) {
-//         isDeleting = false;
-//         phraseIndex = (phraseIndex + 1) % phrases.length;
-//     }
-
-//     setTimeout(typeWriter, delay);
-// }
-
-// // Запуск эффекта после загрузки
-// document.addEventListener('DOMContentLoaded', typeWriter);
