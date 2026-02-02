@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="u717-XhS11z1dhZSwBdxjDOrjpFZveGHLK_iyvRLKps" />
-    <title>Valentin Kolesnikov | Home</title>
+    <title>Valentin Kolesnikov | Rock Paper Scissors</title>
     <link rel="icon" type="image/png" href="Images/MainIcon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Corinthia:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/lang.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -35,7 +36,7 @@
         <a href="rps.html">Rock Paper Scissors</a>
         <a href="rsa.html">Python RSA</a>
         <a href="notepad.html">Like A Notepad</a>
-        <a href="index.html" data-i18n="home">About me</a>
+        <a href="index.html" data-i18n="home">About Me</a>
 
         <div class="nav-mobile-controls">
             <button class="theme-btn" onclick="toggleLanguage()">
@@ -48,11 +49,32 @@
     <main>
         <a href="index.html" class="back-link" onclick="goHome(event)" data-i18n="backBtn">&larr; Back to Home</a>
         <article class="project-detail">
-            <h2 class="project-title">Rock Paper Scissors</h2>
+            <h2 class="project-title" data-i18n="rps_title_new">Rock Paper Scissors</h2>
             <div class="project-meta">Game Logic • Python • Interactive</div>
             <div class="content">
-                <p data-i18n="rpsDesc1">A robust implementation of the classic game "Rock, Paper, Scissors". This project demonstrates clean code structure, user input handling, and game logic state management.</p>
-                <p data-i18n="rpsDesc2">It serves as a perfect example of algorithmic thinking applied to simple interactive systems, ensuring edge cases are handled and the user experience is smooth.</p>
+                <p data-i18n="rps_intro_new">A simple Python implementation of the classic Rock Paper Scissors game. Play against one or two computer opponents in a text-based interface.</p>
+                
+                <h3 data-i18n="rps_feat_title">Features</h3>
+                <ul>
+                    <li data-i18n="rps_feat_1">Terminal-based gameplay.</li><br>
+                    <li data-i18n="rps_feat_2">Play against one computer or two computers.</li><br>
+                    <li data-i18n="rps_feat_3">Any number of rounds with repeated draws until someone wins.</li><br>
+                    <li data-i18n="rps_feat_4">Randomized (used math.ceil; secrets.choice from the list which will be created by random.uniform) computer moves.</li><br>
+                    <li data-i18n="rps_feat_5">Clear scoring system and round tracking.</li><br>
+                </ul>
+
+                <h3 data-i18n="rps_how_title">How to Play</h3>
+                <ol>
+                    <li data-i18n="rps_how_1">Open the <code class="inline-code">.exe</code> file or <code class="inline-code">.py</code> file.</li><br>
+                    <li data-i18n="rps_how_2">At the start, choose whether you want to play.</li><br>
+                    <li data-i18n="rps_how_3">Select the number of players: <code class="inline-code">1</code> (you against the computer) or <code class="inline-code">2</code> (you against two computers).</li><br>
+                    <li data-i18n="rps_how_4">You can choose any number of rounds you want.</li><br>
+                    <li data-i18n="rps_how_5">Choose a move: a rock - number <code class="inline-code">1</code>; a paper - number <code class="inline-code">2</code>; scissors - number <code class="inline-code">3</code>.</li><br>
+                    <li data-i18n="rps_how_6">The game continues until victory in each round; a draw restarts the move.</li><br>
+                    <li data-i18n="rps_how_7">The announcement of the winner will keep track of who has what points, and then give the opportunity to win back (even to computers, if the player has definitely lost) if someone has a draw.</li><br>
+                </ol>
+
+                <h3 data-i18n="rps_note">I've completed the project! If I find errors, I will fix them as small fixes. However, they should not be.</h3>
             </div>
             <a href="https://github.com/valentin-kolesnikov/RockPaperScissors" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
         </article>
