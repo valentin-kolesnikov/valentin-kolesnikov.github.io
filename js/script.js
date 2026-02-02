@@ -429,12 +429,39 @@ async function loadContent(url, pushState = true) {
             const currentMain = document.querySelector('main');
 
             if (newMain && currentMain) {
+                // 1. Анимация исчезновения
                 currentMain.style.opacity = '0';
+                
+                // 2. Ждем (150мс для скорости)
                 setTimeout(() => {
                     currentMain.innerHTML = newMain.innerHTML;
                     document.title = doc.title;
                     
-                    if (pushState) history.pushState({ path: url }, '', url);
+                    if (pushState) {
+                        let displayUrl = url;
+                        // Убираем index.html из адреса
+                        if (displayUrl.includes('index.html')) {
+                            displayUrl = './';
+                        }
+
+                        // --- ЛОГИКА ИСТОРИИ (НОВОЕ) ---
+                        const currentPath = window.location.pathname;
+                        
+                        // Проверяем, находимся ли мы уже на Главной
+                        const isCurrentlyHome = currentPath.endsWith('/') || currentPath.endsWith('index.html');
+                        // Проверяем, идем ли мы на Главную
+                        const isGoingHome = url === 'index.html' || url === './';
+
+                        // Если мы идем "с Главной на Главную" или "с YouTube на YouTube"
+                        if ((isCurrentlyHome && isGoingHome) || currentPath.endsWith(url)) {
+                            // REPLACE: Обновляем текущую страницу, не создавая дубликат в истории
+                            history.replaceState({ path: url }, '', displayUrl);
+                        } else {
+                            // PUSH: Это переход на НОВУЮ страницу, добавляем в историю
+                            history.pushState({ path: url }, '', displayUrl);
+                        }
+                        // ------------------------------
+                    }
                     
                     applyTranslations();
                     
@@ -444,8 +471,9 @@ async function loadContent(url, pushState = true) {
                     }
                     
                     window.scrollTo(0, 0);
+                    // 3. Анимация появления
                     currentMain.style.opacity = '1';
-                }, 250);
+                }, 150);
             } else {
                 window.location.href = url;
             }
@@ -457,6 +485,8 @@ async function loadContent(url, pushState = true) {
     }
 }
 
+
+
 function goHome(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -465,17 +495,13 @@ function goHome(e) {
     const main = document.querySelector('main');
 
     if (link) {
-        // 1. Анимация кнопки (улетает)
         link.classList.add('fly-away');
 
-        // 2. Анимация экрана (затемняется сразу же)
         if (main) {
             main.style.opacity = '0';
         }
 
-        // 3. Ждем 300мс (время полета кнопки и затемнения) и грузим Главную
         setTimeout(() => {
-            // Вместо history.back() используем прямой переход
             loadContent('index.html'); 
         }, 50);
     }
@@ -486,6 +512,11 @@ function scrollToTop() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.pathname.endsWith('index.html')) {
+        const newPath = window.location.pathname.replace('index.html', '');
+        window.history.replaceState(null, '', newPath);
+    }
+
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
