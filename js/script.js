@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('header-lang-btn').textContent = 'EN';
         }
     }
+
+    updateActiveMenu();
     
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('a');
@@ -119,6 +121,8 @@ async function loadContent(url, pushState = true) {
                     }
                     
                     window.scrollTo(0, 0);
+                    
+                    updateActiveMenu();
 
                     currentMain.style.opacity = '1';
                 }, 150);
@@ -176,3 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function updateActiveMenu() {
+    const path = window.location.pathname.split("/").pop() || "index.html";
+    
+    document.querySelectorAll('.navigation a').forEach(link => {
+        link.classList.remove('active-link');
+        if (link.getAttribute('href') === path) {
+            link.classList.add('active-link');
+        }
+    });
+}
