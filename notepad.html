@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="u717-XhS11z1dhZSwBdxjDOrjpFZveGHLK_iyvRLKps" />
     <title>Valentin Kolesnikov | Like a Notepad</title>
-    <meta name="description" content="Valentin Kolesnikov's portfolio. Python developer specializing in data analysis and algorithms. Check out YouTube Explorer and Python RSA projects.">
+    <meta name="description" content="Valentin Kolesnikov's portfolio. Python developer specializing in data analysis and algorithms.">
     <link rel="icon" type="image/png" href="Images/MainIcon.png">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Corinthia:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
     <script src="js/lang.js" defer></script>
     <script src="js/script.js" defer></script>
@@ -36,7 +34,7 @@
         <a href="youtube.html">YouTube Explorer</a>
         <a href="rps.html">Rock Paper Scissors</a>
         <a href="rsa.html">Python RSA</a>
-        <a href="notepad.html">Like A Notepad</a>
+        <a href="notepad.html" class="active-link">List Builder</a>
         <a href="index.html" data-i18n="home">About Me</a>
 
         <div class="nav-mobile-controls">
@@ -50,19 +48,51 @@
     <main>
         <a href="index.html" class="back-link" onclick="goHome(event)" data-i18n="backBtn">&larr; Back to Home</a>
         <article class="project-detail">
-            <h2 class="project-title">Like A Notepad</h2>
-            <div class="project-meta">Productivity • Python • GUI Application</div>
+
+            <h2 class="project-title" data-i18n="lb_title">Like a Notepad</h2>
+            <div class="project-meta" data-i18n="lb_meta">Productivity • Python • CLI Tool</div>
+            
             <div class="content">
-                <p data-i18n="notepadDesc1">A lightweight and efficient text editor designed for speed and simplicity. Built with Python, it mirrors the classic functionality of standard notepads but with a cleaner codebase.</p>
-                <p data-i18n="notepadDesc2">Features include creating, opening, and saving text files, as well as essential editing tools. It serves as a practical example of building desktop GUI applications.</p>
+                <p data-i18n="lb_intro">
+                    This is a simple Python script that interactively collects and displays a list of entries from the user. It supports two modes:
+                </p>
+                <ol data-i18n="lb_list">
+                    <li>Main Info only</li><br>
+                    <li>Main + Additional Info</li><br>
+                    <li>Ideal for quickly gathering structured data from user input.</li>
+                </ol><br>
+                
+                <h2 data-i18n="lb_clarif_title">Important clarification</h2>
+                <p data-i18n="lb_clarif_text">
+                    The <code class='inline-code'>.exe</code> file is in releases. This <code class='inline-code'>.exe</code> file does not have viruses. It was created for convenience. I made this file thanks to <code class='inline-code'>python -m PyInstaller --onefile ...</code>. If you do not trust the <code class='inline-code'>.exe</code> file, I recommend you to use the <code class='inline-code'>.py</code> file.
+                </p><br>
+
+                <h2 data-i18n="lb_feat_title">Features</h2>
+                <ul data-i18n="lb_feat_list">
+                    <li>Interactive CLI prompts</li><br>
+                    <li>Two input modes (basic or with additional details)</li><br>
+                    <li>Custom stop-words to end input session</li><br>
+                    <li>Neat and numbered output formatting</li>
+                </ul><br>
+
+                <h2 data-i18n="lb_how_title">How to use?</h2>
+                <ol data-i18n="lb_how_list">
+                    <li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li><br>
+                    <li>Choose mode: 1 = main info only; 2 = main + additional info.</li><br>
+                    <li>To stop input, type: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> or pressing <code class='inline-code'>Enter</code>.</li><br>
+                    <li>The script will output your entries as a formatted, numbered list.</li>
+                </ol><br>
+
+                <h2 data-i18n="lb_footer">I have completed this project. If I find errors, I will fix them as small fixes. However, they should not be.</h2>
             </div>
-            <a href="https://github.com/valentin-kolesnikov/LikeANotepad" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
+            
+            <a href="https://github.com/valentin-kolesnikov/LikeANotepad" target="_blank" class="btn-github" data-i18n="githubBtn" rel="noopener noreferrer">View on GitHub</a>
         </article>
     </main>
     <footer>
         <div class="socials">
-            <a href="https://github.com/Valentin-Kolesnikov" target="_blank">GitHub</a>
-            <a href="https://t.me/sincereopinions" target="_blank">Telegram</a>
+            <a href="https://github.com/Valentin-Kolesnikov" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://t.me/sincereopinions" target="_blank" rel="noopener noreferrer">Telegram</a>
         </div>
         <small style="opacity:0.6; font-family:'Segoe UI', sans-serif;">&copy; 2026 Valentin Kolesnikov</small>
     </footer>

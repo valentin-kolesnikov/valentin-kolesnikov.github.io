@@ -35,7 +35,7 @@
     <nav class="navigation" id="navigation">
         <a href="youtube.html">YouTube Explorer</a>
         <a href="rps.html">Rock Paper Scissors</a>
-        <a href="rsa.html">Python RSA</a>
+        <a href="rsa.html" class="active-link">Python RSA</a>
         <a href="notepad.html">Like A Notepad</a>
         <a href="index.html" data-i18n="home">About Me</a>
 
@@ -50,19 +50,46 @@
     <main>
         <a href="index.html" class="back-link" onclick="goHome(event)" data-i18n="backBtn">&larr; Back to Home</a>
         <article class="project-detail">
-            <h2 class="project-title">Python RSA</h2>
+
+            <h2 class="project-title" data-i18n="rsa_title_main">Python RSA</h2>
             <div class="project-meta">Security • Cryptography • Algorithms</div>
+            
             <div class="content">
-                <p data-i18n="rsaDesc1">A custom implementation of the RSA (Rivest–Shamir–Adleman) public-key cryptosystem. This project explores the mathematical foundations of modern web security.</p>
-                <p data-i18n="rsaDesc2">It includes key generation (public and private), encryption of messages, and decryption processes, providing a transparent view into how secure data transmission works.</p>
+
+                <p data-i18n="rsa_intro">The script allows you to encrypt and decrypt a message using a pair of prime numbers.</p>
+
+                <h2 data-i18n="rsa_clarif_title">Important clarification!!!</h2>
+                <p data-i18n="rsa_clarif_text">The .exe file is in releases. This <code class='inline-code'>.exe</code> file does not have viruses. It was created for convenience. I made this file thanks to <code class='inline-code'>python -m PyInstaller --onefile ...</code>. If you do not trust the <code class='inline-code'>.exe</code> file, I recommend you to use the <code class='inline-code'>.py</code> file.</p>
+
+                <h2 data-i18n="rsa_func_title">Functionality:</h2>
+                <ul data-i18n="rsa_func_list">
+                    <li>Entering a message (English or Russian, you choose).</li><br>
+                    <li>Conversion to numeric format.</li><br>
+                    <li>Key generation (p, q, d, e).</li><br>
+                    <li>Encryption and decryption.</li><br>
+                    <li>Display of intermediate steps.</li>
+                </ul>
+
+                <h2 data-i18n="rsa_work_title">How does it work?</h2>
+                <ol data-i18n="rsa_work_list">
+                    <li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li><br>
+                    <li>You choose English or Russian. 1 or 2, respectively.</li><br>
+                    <li>Write the message (one word). You can write uppercase and lowercase letters.</li><br>
+                    <li>Choose the prime number p that you want.</li><br>
+                    <li>Choose the prime number q that is greater than p.<br>Warning: this code doesn't accept a combination of (p;q), respectively: (2;3),(2;5),(2;7),(3;5). The program will ask you to choose other numbers.</li><br>
+                    <li>The program calculates all the values using formulas and outputs an encrypted message and decrypts it at the same time.</li>
+                </ol>
+
+                <h2 data-i18n="rsa_warn_title">Important: this implementation is intended for educational purposes. Do not use it in production or in real security systems.</h2>
             </div>
-            <a href="https://github.com/valentin-kolesnikov/PythonRSA" target="_blank" class="btn-github" data-i18n="githubBtn">View on GitHub</a>
+            
+            <a href="https://github.com/valentin-kolesnikov/PythonRSA" target="_blank" class="btn-github" data-i18n="githubBtn" rel="noopener noreferrer">View on GitHub</a>
         </article>
     </main>
     <footer>
         <div class="socials">
-            <a href="https://github.com/Valentin-Kolesnikov" target="_blank">GitHub</a>
-            <a href="https://t.me/sincereopinions" target="_blank">Telegram</a>
+            <a href="https://github.com/Valentin-Kolesnikov" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://t.me/sincereopinions" target="_blank" rel="noopener noreferrer">Telegram</a>
         </div>
         <small style="opacity:0.6; font-family:'Segoe UI', sans-serif;">&copy; 2026 Valentin Kolesnikov</small>
     </footer>

@@ -180,7 +180,21 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
 
 footer { text-align: center; padding: 30px; background: var(--header-bg); border-top: 1px solid var(--card-border); margin-top: auto; position: relative; z-index: 1; }
 .socials a { color: var(--accent-color); margin: 0 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
-.socials a:hover { color: var(--bg-glow); text-shadow: 0 0 10px var(--bg-glow); }
+
+/*.socials a[href*="youtube.com"]:hover { 
+    color: #FF0000; 
+    text-shadow: 0 0 10px #FF0000; 
+} */
+
+.socials a[href*="github.com"]:hover { 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+.socials a[href*="t.me"]:hover { 
+    color: var(--bg-glow); 
+    text-shadow: 0 0 10px var(--bg-glow); 
+}
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
