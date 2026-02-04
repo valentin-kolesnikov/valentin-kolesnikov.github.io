@@ -54,6 +54,22 @@ header {
     min-height: 80px; box-sizing: border-box;
 }
 
+.content ul, 
+.content ol {
+    margin-bottom: 20px;
+    padding-left: 25px; 
+}
+
+.content li {
+    margin-bottom: 12px; 
+    line-height: 1.6;
+    font-size: 1.1rem;  
+}
+
+.content li:last-child {
+    margin-bottom: 0;
+}
+
 .brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-color); }
 .brand img { height: 45px; width: auto; object-fit: contain; aspect-ratio: 3/2; filter: drop-shadow(0 0 100px var(--bg-glow)); }
 .brand h1 { margin: 0; font-size: 2rem; white-space: nowrap; }

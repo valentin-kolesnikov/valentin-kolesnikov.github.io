@@ -196,21 +196,21 @@ const translations = {
         rsa_clarif_text: "The .exe file is in releases. This <code class='inline-code'>.exe</code> file does not have viruses. It was created for convenience. I made this file thanks to <code class='inline-code'>python -m PyInstaller --onefile ...</code>. If you do not trust the <code class='inline-code'>.exe</code> file, I recommend you to use the <code class='inline-code'>.py</code> file.",
     
         rsa_func_title: "Functionality",
-        rsa_func_list: "<li>Entering a message (English or Russian, you choose).</li><br><li>Conversion to numeric format.</li><br><li>Key generation (p, q, d, e).</li><br><li>Encryption and decryption.</li><br><li>Display of intermediate steps.</li>",
+        rsa_func_list: "<li>Entering a message (English or Russian, you choose).</li> <li>Conversion to numeric format.</li> <li>Key generation (p, q, d, e).</li> <li>Encryption and decryption.</li> <li>Display of intermediate steps.</li>",
         rsa_work_title: "How does it work?",
-        rsa_work_list: "<li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li><br><li>You choose English or Russian. 1 or 2, respectively.</li><br><li>Write the message (one word). You can write uppercase and lowercase letters.</li><br><li>Choose the prime number p that you want.</li><br><li>Choose the prime number q that is greater than p.<br>Warning: this code doesn't accept a combination of (p;q), respectively: (2;3),(2;5),(2;7),(3;5). The program will ask you to choose other numbers.</li><br><li>The program calculates all the values using formulas and outputs an encrypted message and decrypts it at the same time.</li>",
+        rsa_work_list: "<li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li> <li>You choose English or Russian. 1 or 2, respectively.</li> <li>Write the message (one word). You can write uppercase and lowercase letters.</li> <li>Choose the prime number p that you want.</li> <li>Choose the prime number q that is greater than p. Warning: this code doesn't accept a combination of (p;q), respectively: (2;3),(2;5),(2;7),(3;5). The program will ask you to choose other numbers.</li> <li>The program calculates all the values using formulas and outputs an encrypted message and decrypts it at the same time.</li>",
         rsa_warn_title: "Important: this implementation is intended for educational purposes. Do not use it in production or in real security systems.",
         
         lb_title: "Like a Notepad",
         lb_meta: "Productivity • Python • CLI Tool",
         lb_intro: "<p>This is a simple Python script that interactively collects and displays a list of entries from the user. It supports two modes:</p>",
-        lb_list: "<li>Main Info only</li><br><li>Main + Additional Info</li><br><li>Ideal for quickly gathering structured data from user input.</li>",
+        lb_list: "<li>Main Info only</li> <li>Main + Additional Info</li> <li>Ideal for quickly gathering structured data from user input.</li>",
         lb_clarif_title: "Important clarification",
         lb_clarif_text: "The <code class='inline-code'>.exe</code> file is in releases. This <code class='inline-code'>.exe</code> file does not have viruses. It was created for convenience. I made this file thanks to <code class='inline-code'>python -m PyInstaller --onefile ...</code>. If you do not trust the <code class='inline-code'>.exe</code> file, I recommend you to use the <code class='inline-code'>.py</code> file.",
         lb_feat_title: "Features",
-        lb_feat_list: "<li>Interactive CLI prompts</li><br><li>Two input modes (basic or with additional details)</li><br><li>Custom stop-words to end input session</li><br><li>Neat and numbered output formatting</li>",
+        lb_feat_list: "<li>Interactive CLI prompts</li> <li>Two input modes (basic or with additional details)</li> <li>Custom stop-words to end input session</li> <li>Neat and numbered output formatting</li>",
         lb_how_title: "How to use?",
-        lb_how_list: "<li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li><br><li>Choose mode: 1 = main info only; 2 = main + additional info.</li><br><li>To stop input, type: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> or pressing <code class='inline-code'>Enter</code>.</li><br><li>The script will output your entries as a formatted, numbered list.</li>",
+        lb_how_list: "<li>Open the <code class='inline-code'>.exe</code> file or <code class='inline-code'>.py</code> file.</li> <li>Choose mode: 1 = main info only; 2 = main + additional info.</li> <li>To stop input, type: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> or pressing <code class='inline-code'>Enter</code>.</li> <li>The script will output your entries as a formatted, numbered list.</li>",
         lb_footer: "I have completed this project. If I find errors, I will fix them as small fixes. However, they should not be."
     
     },
@@ -275,7 +275,7 @@ const translations = {
         req_li_2: "Действующий ключ YouTube Data API v3, полученный через Google Cloud Console",
         req_li_3: "Python 3.10 или новее (требуется при запуске из репозитория)",
         req_li_4: "Стабильное интернет-соединение",
-        req_note: "Рекомендуется базовое знакомство с командной строкой.",
+        req_note: "Рекомендуется базовое знакомство с командной строки.",
 
         api_title: "❓Как получить ключ YouTube Data API v3?",
         api_li_1: "Вам нужно перейти в <a href='https://console.cloud.google.com'>Google Cloud Console</a>",
@@ -410,23 +410,23 @@ const translations = {
         rsa_clarif_title: "Важное уточнение",
         rsa_clarif_text: "Файл .exe находится в релизах. Этот файл <code class='inline-code'>.exe</code> не содержит вирусов. Он был создан для удобства. Я сделал этот файл благодаря <code class='inline-code'>python -m PyInstaller --onefile ...</code>. Если вы не доверяете файлу <code class='inline-code'>.exe</code>, я рекомендую вам использовать файл <code class='inline-code'>.py</code>.",
         rsa_func_title: "Функциональность",
-        rsa_func_list: "<li>Ввод сообщения (английский или русский, на ваш выбор).</li><br><li>Преобразование в числовой формат.</li><br><li>Генерация ключей (p, q, d, e).</li><br><li>Шифрование и дешифрование.</li><br><li>Отображение промежуточных шагов.</li>",
+        rsa_func_list: "<li>Ввод сообщения (английский или русский, на ваш выбор).</li> <li>Преобразование в числовой формат.</li> <li>Генерация ключей (p, q, d, e).</li> <li>Шифрование и дешифрование.</li> <li>Отображение промежуточных шагов.</li>",
         rsa_work_title: "Как это работает?",
-        rsa_work_list: "<li>Откройте файл <code class='inline-code'>.exe</code> или файл <code class='inline-code'>.py</code>.</li><br><li>Выберите английский или русский язык. 1 или 2 соответственно.</li><br><li>Напишите сообщение (одно слово). Вы можете писать как прописные, так и строчные буквы.</li><br><li>Выберите желаемое простое число p.</li><br><li>Выберите простое число q, которое больше p.<br>Предупреждение: этот код не принимает комбинации (p;q), соответственно: (2;3),(2;5),(2;7),(3;5). Программа попросит вас выбрать другие числа.</li><br><li>Программа вычисляет все значения по формулам и одновременно выводит зашифрованное сообщение и расшифровывает его.</li>",
+        rsa_work_list: "<li>Откройте файл <code class='inline-code'>.exe</code> или файл <code class='inline-code'>.py</code>.</li> <li>Выберите английский или русский язык. 1 или 2 соответственно.</li> <li>Напишите сообщение (одно слово). Вы можете писать как прописные, так и строчные буквы.</li> <li>Выберите желаемое простое число p.</li> <li>Выберите простое число q, которое больше p. Предупреждение: этот код не принимает комбинации (p;q), соответственно: (2;3),(2;5),(2;7),(3;5). Программа попросит вас выбрать другие числа.</li> <li>Программа вычисляет все значения по формулам и одновременно выводит зашифрованное сообщение и расшифровывает его.</li>",
         rsa_warn_title: "Важно: эта реализация предназначена для образовательных целей. Не используйте её в продакшене или в реальных системах безопасности.",
         
         lb_title: "Подобный Блокноту",
         lb_meta: "Продуктивность • Python • CLI Инструмент",
         lb_intro: "<p>Это простой Python скрипт, который интерактивно собирает и отображает список записей от пользователя. Он поддерживает два режима:</p>",
-        lb_list: "<li>Основная информация</li><br><li>Дополнительная информация</li><br><li>Идеально подходит для быстрого сбора структурированных данных из пользовательского ввода.</li>",
+        lb_list: "<li>Основная информация</li> <li>Дополнительная информация</li> <li>Идеально подходит для быстрого сбора структурированных данных из пользовательского ввода.</li>",
         lb_clarif_title: "Важное уточнение",
         lb_clarif_text: "Файл <code class='inline-code'>.exe</code> находится в релизах. Этот <code class='inline-code'>.exe</code> файл не содержит вирусов. Он был создан для удобства. Я сделал этот файл благодаря <code class='inline-code'>python -m PyInstaller --onefile ...</code>. Если вы не доверяете файлу <code class='inline-code'>.exe</code>, я рекомендую вам использовать файл <code class='inline-code'>.py</code>.",
         
         lb_feat_title: "Особенности",
-        lb_feat_list: "<li>Интерактивные подсказки CLI</li><br><li>Два режима ввода (базовый или с дополнительными деталями)</li><br><li>Кастомные стоп-слова для завершения сеанса ввода</li><br><li>Аккуратное и нумерованное форматирование вывода</li>",
+        lb_feat_list: "<li>Интерактивные подсказки CLI</li> <li>Два режима ввода (базовый или с дополнительными деталями)</li> <li>Кастомные стоп-слова для завершения сеанса ввода</li> <li>Аккуратное и нумерованное форматирование вывода</li>",
         
         lb_how_title: "Как использовать?",
-        lb_how_list: "<li>Откройте файл <code class='inline-code'>.exe</code> или <code class='inline-code'>.py</code>.</li><br><li>Выберите режим: 1 = только основная информация; 2 = основная + дополнительная информация.</li><br><li>Чтобы остановить ввод, введите: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> или нажмите <code class='inline-code'>Enter</code>.</li><br><li>Скрипт выведет ваши записи в виде отформатированного нумерованного списка.</li>",
+        lb_how_list: "<li>Откройте файл <code class='inline-code'>.exe</code> или <code class='inline-code'>.py</code>.</li> <li>Выберите режим: 1 = только основная информация; 2 = основная + дополнительная информация.</li> <li>Чтобы остановить ввод, введите: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> или нажмите <code class='inline-code'>Enter</code>.</li> <li>Скрипт выведет ваши записи в виде отформатированного нумерованного списка.</li>",
         
         lb_footer: "Я завершил этот проект. Если я найду ошибки, я исправлю их как небольшие исправления. Однако их быть не должно."
     
