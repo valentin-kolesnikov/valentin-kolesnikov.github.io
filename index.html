@@ -28,6 +28,30 @@
             </a>
         </div>
         <div class="nav-footer">
+            <div id="music-wrapper" class="music-wrapper">
+
+                <div id="music-controls" class="music-controls-slider">
+                    <button class="theme-btn icon-btn" onclick="prevTrack()" title="Prev">⏮</button>
+                    <button class="theme-btn icon-btn" onclick="restartTrack()" title="Restart">↺</button>
+                    <button class="theme-btn icon-btn" onclick="nextTrack()" title="Next">⏭</button>
+                    <div class="volume-container-desktop">
+                        <button class="theme-btn icon-btn" id="volume-btn" onclick="toggleVolume(event)" title="Volume">🎧</button>
+                        <div class="volume-popup" id="volume-popup">
+                            <div class="volume-track-wrapper">
+                                <input type="range" id="volume-slider" class="volume-slider-vertical" min="0" max="1" step="0.05" value="0.5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="theme-btn" onclick="toggleMusic()">
+                    <span data-i18n="musicBtn">Music</span>
+                    <span id="music-icon">▶</span>
+                </button>
+                
+            </div>
+
+
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display">EN</span>
             </button>
@@ -39,10 +63,21 @@
         <a href="youtube.html">YouTube Explorer</a>
         <a href="rps.html">Rock Paper Scissors</a>
         <a href="rsa.html">Python RSA</a>
-        <a href="notepad.html">Like A Notepad</a>
+        <a href="notepad.html">Like a Notepad</a>
         <a href="index.html" data-i18n="home">About Me</a>
 
         <div class="nav-mobile-controls">
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <button class="theme-btn" onclick="toggleMusic()">
+                    <span data-i18n="MusicBtn">Music</span> <span id="music-icon-mobile" style="margin-left: 3px;">▶</span>
+                </button>
+                <div id="music-controls-mobile" style="gap: 5px; justify-content: space-between;">
+                    <button class="theme-btn" style="flex:1;" onclick="prevTrack()">⏮</button>
+                    <button class="theme-btn" style="flex:1;" onclick="restartTrack()">↺</button>
+                    <button class="theme-btn" style="flex:1;" onclick="nextTrack()">⏭</button>
+                </div>
+            </div>
+
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display-mobile">EN</span>
             </button>
@@ -67,7 +102,7 @@
                     <div class="tech-stack">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Terminal-app</span>
-                        <span class="tech-tag">Parsing</span>
+                        <span class="tech-tag">Data parsing</span>
                     </div>
                 </div>
                 <div class="arrow">&rarr;</div>
@@ -77,9 +112,9 @@
                     <h3>Rock Paper Scissors</h3>
                     <p data-i18n="rpsShort">Advanced implementation of the classic game.</p>
                     <div class="tech-stack">
+                        <span class="tech-tag">Game Logic</span>
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Terminal-game</span>
-                        <span class="tech-tag">Fun</span>
+                        <span class="tech-tag">Interactive</span>
                     </div>
                 </div>
                 <div class="arrow">&rarr;</div>
@@ -89,21 +124,21 @@
                     <h3>Python RSA</h3>
                     <p data-i18n="rsaShort">Custom implementation of RSA encryption.</p>
                     <div class="tech-stack">
-                        <span class="tech-tag">Cryptography</span>
+                        <span class="tech-tag" >Cryptography</span>
                         <span class="tech-tag">Mathematics</span>
-                        <span class="tech-tag">Experiment</span>
+                        <span class="tech-tag">Experimental</span>
                     </div>
                 </div>
                 <div class="arrow">&rarr;</div>
             </a>
             <a href="notepad.html" class="nav-card" data-tilt>
                 <div>
-                    <h3>Like A Notepad</h3>
+                    <h3>Like a Notepad</h3>
                     <p data-i18n="notepadShort">Simple desktop text editor built with Python.</p>
                     <div class="tech-stack">
+                        <span class="tech-tag">Productivity</span>
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Terminal-app</span>
-                        <span class="tech-tag">Simple-script</span>
+                        <span class="tech-tag">CLI Tool</span>
                     </div>
                 </div>
                 <div class="arrow">&rarr;</div>
@@ -124,6 +159,11 @@
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
+
+    <audio id="bg-music" loop>
+        <source src="Music/Lofy.mp3" type="audio/mpeg">
+    </audio>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" defer></script>
 </body>
 </html>

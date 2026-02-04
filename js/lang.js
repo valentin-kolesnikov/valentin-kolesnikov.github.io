@@ -6,6 +6,7 @@ const translations = {
         backBtn: "← Back to Home",
         githubBtn: "View on GitHub",
         home: "About Me",
+        musicBtn: "Music",
         
         aboutText: "Welcome. I am Valentin Kolesnikov. I specialize in Python development, algorithms, and data analysis tools. Explore my key projects below to see my code in action.",
         ytShort: "Deep data analysis tool for YouTube content.",
@@ -22,7 +23,7 @@ const translations = {
         notepadDesc1: "A lightweight and efficient text editor designed for speed and simplicity. Built with Python, it mirrors the classic functionality of standard notepads but with a cleaner codebase.",
         notepadDesc2: "Features include creating, opening, and saving text files, as well as essential editing tools. It serves as a practical example of building desktop GUI applications.",
 
-        ye_meta: "Main Project • Python • Data Analysis",
+        ye_meta: "Python • Terminal-app • Data parsing",
         ye_title_main: "YouTube Explorer",
         ye_intro: "<strong>YouTube Explorer</strong> is a console-based Python tool for programmatic exploration of YouTube content using <strong>YouTube Data API v3</strong> (with OAuth 2.0 support), <strong>Return YouTube Dislike API</strong>, and <strong>YouTube Transcript API</strong>",
         ye_designed_for: "It is designed for:",
@@ -170,6 +171,7 @@ const translations = {
         iss_p: "I will be glad to see your opinions and ideas for new features or improvements. Moreover, please report bugs. Just open an issue and surprise me!",
         
         rps_title_new: "Rock Paper Scissors",
+        rps_meta: "Game Logic • Python • Interactive",
         rps_intro_new: "A simple Python implementation of the classic Rock Paper Scissors game. Play against one or two computer opponents in a text-based interface.",
         rps_feat_title: "Features",
         rps_feat_1: "Terminal-based gameplay.",
@@ -188,6 +190,7 @@ const translations = {
         rps_note: "I've completed the project! If I find errors, I will fix them as small fixes. However, they should not be.",
 
         rsa_title_main: "Python RSA",
+        rsa_meta: "Cryptography • Mathematics • Experimental",
         rsa_intro: "The script allows you to encrypt and decrypt a message using a pair of prime numbers.",
         rsa_clarif_title: "Important clarification",
         rsa_clarif_text: "The .exe file is in releases. This <code class='inline-code'>.exe</code> file does not have viruses. It was created for convenience. I made this file thanks to <code class='inline-code'>python -m PyInstaller --onefile ...</code>. If you do not trust the <code class='inline-code'>.exe</code> file, I recommend you to use the <code class='inline-code'>.py</code> file.",
@@ -218,6 +221,7 @@ const translations = {
         backBtn: "← На Главную",
         githubBtn: "Смотреть на GitHub",
         home: "Обо мне",
+        musicBtn: "Музыка",
 
         aboutText: "Приветствую. Я Валентин Колесников. Я специализируюсь на разработке Python, алгоритмах и инструментах анализа данных. Изучите мои ключевые проекты ниже.",
         ytShort: "Инструмент глубокого анализа данных YouTube.",
@@ -234,7 +238,7 @@ const translations = {
         notepadDesc1: "Легкий и эффективный текстовый редактор, созданный для скорости и простоты. Написан на Python.",
         notepadDesc2: "Функции включают создание, открытие и сохранение файлов. Практический пример создания GUI-приложений.",
 
-        ye_meta: "Основной проект • Python • Анализ данных",
+        ye_meta: "Python • Терминал • Извлечение данных",
         ye_title_main: "YouTube Explorer",
         ye_intro: "<strong>YouTube Explorer</strong> — это консольный инструмент на Python для программного исследования контента YouTube с использованием <strong>YouTube Data API v3</strong> (с поддержкой OAuth 2.0), <strong>Return YouTube Dislike API</strong> и <strong>YouTube Transcript API</strong>.",
         ye_designed_for: "Он предназначен для:",
@@ -382,6 +386,7 @@ const translations = {
         iss_p: "Буду рад видеть ваши мнения и идеи по новым функциям или улучшениям. Также, пожалуйста, сообщайте об ошибках. Просто откройте issue и удивите меня!",
 
         rps_title_new: "Камень, Ножницы, Бумага",
+        rps_meta: "Логика игры • Python • Интерактив",
         rps_intro_new: "Простая реализация классической игры «Камень, Ножницы, Бумага» на Python. Играйте против одного или двух компьютерных противников в текстовом интерфейсе.",
         rps_feat_title: "Особенности",
         rps_feat_1: "Игровой процесс в терминале.",
@@ -400,6 +405,7 @@ const translations = {
         rps_note: "Я завершил проект! Если я найду ошибки, я исправлю их как небольшие исправления. Однако их быть не должно.",
 
         rsa_title_main: "RSA на Python",
+        rsa_meta: "Криптография • Математика • Экспериментальный",
         rsa_intro: "Скрипт позволяет шифровать и расшифровывать сообщения, используя пару простых чисел.",
         rsa_clarif_title: "Важное уточнение",
         rsa_clarif_text: "Файл .exe находится в релизах. Этот файл <code class='inline-code'>.exe</code> не содержит вирусов. Он был создан для удобства. Я сделал этот файл благодаря <code class='inline-code'>python -m PyInstaller --onefile ...</code>. Если вы не доверяете файлу <code class='inline-code'>.exe</code>, я рекомендую вам использовать файл <code class='inline-code'>.py</code>.",

@@ -25,6 +25,29 @@
             <a href="index.html" class="brand"><img src="Images/MainIcon.png" alt="Logo" width="68" height="45"><h1 data-i18n="brandName">Valentin Kolesnikov</h1></a>
         </div>
         <div class="nav-footer">
+            <div id="music-wrapper" class="music-wrapper">
+
+                <div id="music-controls" class="music-controls-slider">
+                    <button class="theme-btn icon-btn" onclick="prevTrack()" title="Prev">⏮</button>
+                    <button class="theme-btn icon-btn" onclick="restartTrack()" title="Restart">↺</button>
+                    <button class="theme-btn icon-btn" onclick="nextTrack()" title="Next">⏭</button>
+                    <div class="volume-container-desktop">
+                        <button class="theme-btn icon-btn" id="volume-btn" onclick="toggleVolume(event)" title="Volume">🎧</button>
+                        <div class="volume-popup" id="volume-popup">
+                            <div class="volume-track-wrapper">
+                                <input type="range" id="volume-slider" class="volume-slider-vertical" min="0" max="1" step="0.05" value="0.5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="theme-btn" onclick="toggleMusic()">
+                    <span data-i18n="musicBtn">Music</span>
+                    <span id="music-icon">▶</span>
+                </button>
+                
+            </div>
+
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display">EN</span>
             </button>
@@ -40,6 +63,10 @@
         <a href="index.html" data-i18n="home">About Me</a>
 
         <div class="nav-mobile-controls">
+            <button class="theme-btn" onclick="toggleMusic()">
+                <span data-i18n="MusicBtn">Music</span> <span id="music-icon-mobile" style="margin-left: 3px;">▶</span>
+            </button>
+
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display-mobile">EN</span>
             </button>
@@ -52,7 +79,7 @@
         <a href="index.html" class="back-link" onclick="goHome(event)" data-i18n="backBtn">&larr; Back to Home</a>
         <article class="project-detail">
             <h2 class="project-title">YouTube Explorer</h2>
-            <div class="project-meta" data-i18n="ye_meta">Main Project • Python • Data Analysis</div>
+            <div class="project-meta" data-i18n="ye_meta">Python • Terminal-app • Data parsing</div>
             <div class="content">
 <div class="banner-container">
     <img src="Images/GeneralYE.png" alt="YouTube Explorer" class="responsive-banner" loading="lazy">
@@ -244,6 +271,11 @@
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
+        
+    <audio id="bg-music" loop>
+        <source src="Music/Lofy.mp3" type="audio/mpeg">
+    </audio>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </body>
 </html>
