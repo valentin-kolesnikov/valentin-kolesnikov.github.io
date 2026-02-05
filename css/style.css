@@ -238,6 +238,11 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
     text-shadow: 0 0 10px #FF0000; 
 } */
 
+.socials a[href*="x.com"]:hover { 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
 .socials a[href*="github.com"]:hover { 
     color: #ffffff; 
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
