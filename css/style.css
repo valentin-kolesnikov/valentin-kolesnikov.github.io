@@ -22,6 +22,9 @@ body.light-theme {
     --nav-hover-bg: rgba(0, 0, 0, 0.05);
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 html {
     overflow-y: scroll; 
     scroll-behavior: smooth;
@@ -92,45 +95,117 @@ header {
     position: fixed; 
     top: 0; 
     left: 0; 
-    width: 260px; 
+    width: 280px;
     height: 100%; 
     background-color: var(--menu-bg); 
     
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    border-right: 2px solid transparent;
+    
     transform: translateX(-100%); 
-    
     visibility: hidden;
-    transition: transform 0.3s ease-in-out, visibility 0s linear 0.3s, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0.3s,
+                box-shadow 0.3s,
+                border-color 0.3s ease;
     
-    padding-top: 90px; 
+    padding: 100px 20px 20px 20px; 
+    box-sizing: border-box;
     z-index: 1000; 
-    display: flex; 
-    flex-direction: column; 
     
     box-shadow: none; 
 }
 
 .navigation.active { 
     transform: translateX(0); 
-    
     visibility: visible;
-    transition: transform 0.3s ease-in-out, visibility 0s linear 0s, box-shadow 0.3s ease-in-out;
-    
-    box-shadow: 5px 0 20px rgba(0,0,0,0.5); 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0s,
+                box-shadow 0.3s,
+                border-color 0.3s ease;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.3); 
+    border-right-color: var(--bg-glow);
 }
 
-.navigation a, .navigation button.nav-link { display: block; padding: 15px 25px; color: var(--text-color); text-decoration: none; font-size: 1.1rem; transition: 0.2s; border: none; background: none; text-align: left; cursor: pointer; font-family: 'Segoe UI', sans-serif; width: 100%; box-sizing: border-box; }
-.navigation a:hover, .navigation button.nav-link:hover { 
-    background: var(--nav-hover-bg);
-    color: var(--bg-glow); 
+.navigation a, 
+.navigation button.nav-link { 
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+    width: 100%; 
+    padding: 12px 20px; 
+    margin-bottom: 12px; 
+    box-sizing: border-box;
+    
+    color: var(--text-color); 
+    text-decoration: none; 
+    font-size: 1.1rem; 
+    font-family: 'Segoe UI', sans-serif; 
+    
+    background: transparent;
+    border: 2px solid var(--accent-color); 
+    border-radius: 25px;
+    
+    transition: all 0.3s ease;
+    text-align: left;
+    overflow: hidden; 
+}
+
+.navigation a:hover, 
+.navigation button.nav-link:hover { 
+    background: rgba(160, 186, 204, 0.1); 
+    border-color: var(--bg-glow); 
+    box-shadow: 0 0 25px rgba(0, 163, 255, 0.2);
     padding-left: 35px; 
-    border-left: 3px solid var(--bg-glow); 
+    color: var(--text-color); 
 }
 
 .navigation a.active-link {
-    background: var(--nav-hover-bg);
+    border-color: var(--bg-glow);
+    background: rgba(0, 163, 255, 0.05); 
     color: var(--bg-glow);
-    padding-left: 35px;
-    border-left: 3px solid var(--bg-glow);
+    padding-left: 35px; 
+    box-shadow: 0 0 10px rgba(0, 163, 255, 0.15) inset;
+}
+
+.navigation a::before,
+.navigation a.active-link::before {
+    content: '';
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%) scaleY(0); 
+    
+    width: 4px; 
+    height: 60%;
+    
+    background-color: var(--bg-glow);
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.navigation a:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+.navigation a.active-link::before {
+    transform: translateY(-50%) scaleY(1);
+    box-shadow: 0 0 8px var(--bg-glow);
+}
+
+.navigation a:active,
+.navigation button.nav-link:active {
+    transform: scale(0.98);
+    background: rgba(0, 163, 255, 0.15); 
+    border-color: var(--bg-glow); 
+    box-shadow: 0 0 15px rgba(0, 163, 255, 0.2); 
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                background 0.2s ease-out, 
+                border-color 0.2s ease-out,
+                box-shadow 0.2s ease-out;
 }
 
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 999; backdrop-filter: blur(3px); }
@@ -152,9 +227,14 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     display: flex; flex-direction: column; justify-content: space-between;
     min-height: 240px; text-decoration: none; color: var(--text-color);
     transition: all 0.3s; backdrop-filter: blur(5px);
-    position: relative; overflow: hidden; transform-style: preserve-3d; 
+    position: relative; overflow: hidden; transform-style: preserve-3d;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
     outline: 1px solid transparent; transform: translateZ(0);
+
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+    will-change: transform;  
+    filter: blur(0.001px); 
 }
 
 .card-content, .arrow { transform: translateZ(20px); }
@@ -273,7 +353,14 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
     :lang(ru) .brand h1 { font-size: 1.3rem !important; }
 }
 
-.nav-card:active { transform: scale(0.98) translateZ(0) !important; opacity: 0.9; transition: transform 0.05s ease-out; }
+.nav-card:active {
+    transform: scale(0.99) translateZ(0) !important;
+    border-color: var(--bg-glow);
+    background-color: rgba(0, 163, 255, 0.08);
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.25); 
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 .back-link:active { transform: scale(0.95) translateX(-5px); color: var(--bg-glow); transition: transform 0.05s ease-out; }
 .menu-btn:active, .theme-btn:active, .btn-github:active { transform: scale(0.90); transition: transform 0.05s; }
 .theme-btn span, .theme-btn i {
@@ -554,4 +641,19 @@ ul.checklist input[type="checkbox"]:checked::after { content: ''; position: abso
 .volume-slider-vertical::-webkit-slider-thumb:hover {
     background: var(--bg-glow);
     box-shadow: 0 0 10px var(--bg-glow);
+}
+
+.theme-btn:active, 
+.menu-btn:active, 
+.btn-github:active {
+    transform: scale(0.95);
+    background: var(--bg-glow); 
+    color: #000; 
+    box-shadow: 0 0 12px var(--bg-glow); 
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.menu-btn:active {
+    background: transparent; 
+    box-shadow: none;
 }
