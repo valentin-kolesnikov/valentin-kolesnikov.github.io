@@ -3,7 +3,7 @@ const translations = {
         brandName: "Valentin Kolesnikov",
 
         themeBtn: "Theme",
-        backBtn: "← Back to Home",
+        backBtn: "← Back to Main Menu",
         githubBtn: "View on GitHub",
         home: "About Me",
         musicBtn: "Music",
