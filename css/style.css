@@ -235,14 +235,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
 
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; position: relative; z-index: 1; }
 
-/* ==========================================================================
-   ПЕРСОНАЛИЗАЦИЯ КНОПОК И КАРТОЧЕК (Override)
-   Добавить в конец style.css
-   ========================================================================== */
-
-/* --- 1. Карточки на Главной странице (Index) --- */
-
-/* YouTube Explorer Card (Красный) */
 .nav-card[href*="youtube.html"]:hover {
     border-color: #FF0033 !important;
     background-color: rgba(255, 0, 51, 0.1) !important;
@@ -255,10 +247,9 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     background: #FF0033 !important;
     border-color: #FF0033 !important;
     box-shadow: 0 0 5px #FF0033 !important;
-    color: #000 !important; /* Черный текст на красном фоне */
+    color: #000 !important;
 }
 
-/* Rock Paper Scissors Card (Зеленый) */
 .nav-card[href*="rps.html"]:hover {
     border-color: #00E640 !important;
     background-color: rgba(0, 230, 64, 0.1) !important;
@@ -273,9 +264,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     box-shadow: 0 0 5px #00E640 !important;
     color: #000 !important;
 }
-
-
-
 
 .nav-card {
     background-color: var(--card-bg);
@@ -687,7 +675,6 @@ h2 { border-bottom: none; }
     border-radius: 50%;
     border: 2px solid var(--accent-color);
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .volume-slider-vertical::-webkit-slider-thumb:hover {
