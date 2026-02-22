@@ -1,0 +1,20 @@
+body.theme-rps {
+    --bg-glow: #00E640;
+    --accent-color: #69f0ae;
+    --card-border: rgba(0, 230, 64, 0.4);
+    --nav-hover-bg: rgba(0, 230, 64, 0.1);
+}
+
+body.theme-rps .navigation a.active-link {
+    background: rgba(0, 230, 64, 0.05);
+    color: var(--bg-glow);
+    border-color: var(--bg-glow);
+}
+
+body.theme-rps .nav-card:hover {
+    background-color: rgba(0, 230, 64, 0.1);
+    border-color: var(--bg-glow);
+    box-shadow: 0 0 20px rgba(0, 230, 64, 0.3);
+}
+
+body.theme-rps .content a { color: #69f0ae; }

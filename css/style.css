@@ -314,8 +314,8 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 .socials a { color: var(--accent-color); margin: 0 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
 
 /*.socials a[href*="youtube.com"]:hover { 
-    color: #FF0000; 
-    text-shadow: 0 0 10px #FF0000; 
+    color: #FF0033; 
+    text-shadow: 0 0 10px #FF0033; 
 } */
 
 .socials a[href*="x.com"]:hover { 
@@ -329,8 +329,8 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 }
 
 .socials a[href*="t.me"]:hover { 
-    color: var(--bg-glow); 
-    text-shadow: 0 0 10px var(--bg-glow); 
+    color: #00A3FF; 
+    text-shadow: 0 0 10px #00A3FF; 
 }
 
 ::-webkit-scrollbar { width: 5px; }
@@ -375,12 +375,6 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 h1, h2, h3 { scroll-margin-top: 110px; }
 h1 { border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding-bottom: 15px; margin-bottom: 25px; }
 h2 { border-bottom: none; }
-
-ul.checklist { list-style-type: none; padding-left: 5px; }
-ul.checklist li { display: flex; align-items: center; margin-bottom: 12px; }
-ul.checklist input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 15px; height: 15px; border: 2px solid var(--accent-color); border-radius: 4px; background-color: transparent; cursor: default; position: relative; margin-right: 15px; opacity: 1; flex-shrink: 0; }
-ul.checklist input[type="checkbox"]:checked { background-color: #00A3FF; border-color: #00A3FF; }
-ul.checklist input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: -1px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
 
 .banner-container { text-align: left; margin-bottom: 20px; }
 .responsive-banner { max-width: 100%; height: auto; display: block; margin-left: 20px; border-radius: 8px; }

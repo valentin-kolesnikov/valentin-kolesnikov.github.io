@@ -1,0 +1,27 @@
+body.theme-youtube {
+    --bg-glow: #FF0033;
+    --accent-color: #ff8090;
+    --card-border: rgba(255, 0, 51, 0.4);
+    --nav-hover-bg: rgba(255, 0, 51, 0.1);
+}
+
+body.theme-youtube .navigation a.active-link {
+    background: rgba(255, 0, 51, 0.05);
+    color: var(--bg-glow);
+    border-color: var(--bg-glow);
+}
+
+body.theme-youtube .nav-card:hover {
+    background-color: rgba(255, 0, 51, 0.1);
+    border-color: var(--bg-glow);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
+}
+
+body.theme-youtube .content a { color: #ff6680; }
+body.theme-youtube .content a:hover { color: var(--bg-glow); }
+
+ul.checklist { list-style-type: none; padding-left: 5px; }
+ul.checklist li { display: flex; align-items: center; margin-bottom: 12px; }
+ul.checklist input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 15px; height: 16px; border: 2px solid var(--accent-color); border-radius: 4px; background-color: transparent; cursor: default; position: relative; margin-right: 15px; opacity: 1; flex-shrink: 0; }
+ul.checklist input[type="checkbox"]:checked { background-color: #FF0033; border-color: #FF0033; }
+ul.checklist input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: -1px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
