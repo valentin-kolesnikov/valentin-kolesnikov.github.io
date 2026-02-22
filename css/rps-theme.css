@@ -18,3 +18,25 @@ body.theme-rps .nav-card:hover {
 }
 
 body.theme-rps .content a { color: #69f0ae; }
+
+.navigation a[href*="rps.html"]:hover,
+.navigation a[href*="rps.html"].active-link {
+    color: #00E640 !important;
+    border-color: #00E640 !important;
+    background: rgba(0, 230, 64, 0.1) !important;
+    box-shadow: 0 0 15px rgba(0, 230, 64, 0.4), 
+                0 0 5px rgba(0, 230, 64, 0.2) inset !important;
+}
+
+.navigation a[href*="rps.html"]:hover::before,
+.navigation a[href*="rps.html"].active-link::before {
+    background-color: #00E640 !important;
+    box-shadow: 0 0 8px #00E640 !important;
+    transform: translateY(-50%) scaleY(1) !important;
+}
+
+.navigation a[href="rps.html"]::before,
+.navigation a[href="rps.html"].active-link::before {
+    background-color: #00E640;
+    box-shadow: 0 0 8px #00E640;
+}

@@ -25,3 +25,25 @@ ul.checklist li { display: flex; align-items: center; margin-bottom: 12px; }
 ul.checklist input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 15px; height: 16px; border: 2px solid var(--accent-color); border-radius: 4px; background-color: transparent; cursor: default; position: relative; margin-right: 15px; opacity: 1; flex-shrink: 0; }
 ul.checklist input[type="checkbox"]:checked { background-color: #FF0033; border-color: #FF0033; }
 ul.checklist input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: -1px; width: 5px; height: 10px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+.navigation a[href*="youtube.html"]:hover,
+.navigation a[href*="youtube.html"].active-link {
+    color: #FF0033 !important;
+    border-color: #FF0033 !important;
+    background: rgba(255, 0, 51, 0.1) !important;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.4), 
+                0 0 5px rgba(255, 0, 51, 0.2) inset !important;
+}
+
+.navigation a[href*="youtube.html"]:hover::before,
+.navigation a[href*="youtube.html"].active-link::before {
+    background-color: #FF0033 !important;
+    box-shadow: 0 0 8px #FF0033 !important;
+    transform: translateY(-50%) scaleY(1) !important; 
+}
+
+.navigation a[href*="youtube.html"]::before,
+.navigation a[href="youtube.html"].active-link::before {
+    background-color: #FF0033;
+    box-shadow: 0 0 8px #FF0033;
+}
