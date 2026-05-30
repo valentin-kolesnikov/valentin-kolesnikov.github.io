@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="">
+    <title>Valentin Kolesnikov | New Project</title>
+    <meta name="description" content="Valentin Kolesnikov's portfolio. Python developer specializing in data analysis and algorithms.">
+    <link rel="icon" type="image/png" href="Images/MainIcon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Corinthia:wght@400;700&family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lang.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <header>
+        <div style="display:flex; align-items:center; gap:20px;">
+            <button class="menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+            <a href="index.html" class="brand"><img src="Images/MainIcon.png" alt="Logo" width="68" height="45"><h1 data-i18n="brandName">Valentin Kolesnikov</h1></a>
+        </div>
+        <div class="nav-footer">
+            <div id="music-wrapper" class="music-wrapper">
+
+                <div id="music-controls" class="music-controls-slider">
+                    <button class="theme-btn icon-btn" onclick="prevTrack()" title="Prev">⏮</button>
+                    <button class="theme-btn icon-btn" onclick="restartTrack()" title="Restart">↺</button>
+                    <button class="theme-btn icon-btn" onclick="nextTrack()" title="Next">⏭</button>
+                    <div class="volume-container-desktop">
+                        <button class="theme-btn icon-btn" id="volume-btn" onclick="toggleVolume(event)" title="Volume">🎧</button>
+                        <div class="volume-popup" id="volume-popup">
+                            <div class="volume-track-wrapper">
+                                <input type="range" id="volume-slider" class="volume-slider-vertical" min="0" max="1" step="0.05" value="0.5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="theme-btn" onclick="toggleMusic()">
+                    <span data-i18n="musicBtn">Music</span>
+                    <span id="music-icon">▶</span>
+                </button>
+                
+            </div>
+
+            <button class="theme-btn" onclick="toggleLanguage()">
+                <span id="lang-display">EN</span>
+            </button>
+            <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
+        </div>
+    </header>
+
+    <nav class="navigation" id="navigation">
+        <a href="youtube.html">YouTube Explorer</a>
+        <a href="rps.html">Rock Paper Scissors</a>
+        <a href="rsa.html">Python RSA</a>
+        <a href="notepad.html" class="active-link">List a Notepad</a>
+        <a href="index.html" data-i18n="home">About Me</a>
+
+        <div class="nav-mobile-controls">
+            <button class="theme-btn" onclick="toggleMusic()">
+                <span data-i18n="MusicBtn">Music</span> <span id="music-icon-mobile" style="margin-left: 3px;">▶</span>
+            </button>
+
+            <button class="theme-btn" onclick="toggleLanguage()">
+                <span id="lang-display-mobile">EN</span>
+            </button>
+            <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
+        </div>
+    </nav>
+
+    <main>
+        <a href="index.html" class="back-link" onclick="goHome(event)" data-i18n="backBtn">&larr; Back to Home</a>
+        <!--<article> Место для записи </article>-->
+    </main>
+    <footer>
+        <div class="socials">
+            <a href="https://github.com/Valentin-Kolesnikov" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://t.me/sincereopinions" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://x.com/Val_Kolesnikov_" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <small style="opacity:0.6; font-family:'Segoe UI', sans-serif;">&copy; 2026 Valentin Kolesnikov</small>
+    </footer>
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+    
+    <audio id="bg-music" loop>
+        <source src="Music/Lofy.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</body>
+</html>
