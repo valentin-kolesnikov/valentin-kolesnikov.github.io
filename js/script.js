@@ -4,6 +4,7 @@ let currentTrackIndex = 0;
 const playlist = [
     'Music/Lofy.mp3',
 ];
+
 function updatePageTheme(url) {
     document.body.classList.remove('theme-youtube', 'theme-rps');
 
@@ -208,8 +209,6 @@ function toggleLanguage() {
     localStorage.setItem('valentin_lang', currentLang);
     applyTranslations();
 }
-
-
 
 window.addEventListener('popstate', (e) => {
     loadContent(window.location.href, false);
