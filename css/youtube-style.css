@@ -3,6 +3,15 @@ body.theme-youtube {
     --accent-color: #ff8090;
     --card-border: rgba(255, 0, 51, 0.4);
     --nav-hover-bg: rgba(255, 0, 51, 0.1);
+    
+    /* Добавляем красный оттенок */
+    --bg-dark: #120204;
+    --text-color: #fff0f2;
+}
+
+body.light-theme.theme-youtube {
+    --bg-dark: #fff5f7;
+    --text-color: #1f0b0d;
 }
 
 body.theme-youtube .navigation a.active-link {

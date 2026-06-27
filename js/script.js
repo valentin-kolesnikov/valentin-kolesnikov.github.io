@@ -55,10 +55,19 @@ async function loadContent(url, pushState = true) {
 
                     updatePageTheme(url);
                     
+                    // Проверяем наличие библиотеки перед инициализацией
                     if (typeof VanillaTilt !== 'undefined') {
-                        const tilts = document.querySelectorAll('[data-tilt]');
-                        if (tilts.length > 0) VanillaTilt.init(tilts);
+                        VanillaTilt.init(document.querySelectorAll(".nav-card"), {
+                            max: 10,
+                            speed: 800,
+                            glare: true,
+                            "max-glare": 0.2,
+                            scale: 1.02,
+                            perspective: 1200,
+                            easing: "cubic-bezier(0.25, 0.8, 0.25, 1)"
+                        });
                     }
+                    
                     
                     window.scrollTo(0, 0);
                     

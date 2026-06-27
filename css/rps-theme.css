@@ -3,6 +3,17 @@ body.theme-rps {
     --accent-color: #69f0ae;
     --card-border: rgba(0, 230, 64, 0.4);
     --nav-hover-bg: rgba(0, 230, 64, 0.1);
+    
+    /* Добавляем зелёный оттенок */
+    --bg-dark: #021206;
+    --text-color: #f0fff4;
+    --selection-color: #000000;
+}
+
+body.light-theme.theme-rps {
+    --bg-dark: #f5fff7;
+    --text-color: #0b1f10;
+    --selection-color: #ffffff;
 }
 
 body.theme-rps .navigation a.active-link {
