@@ -55,12 +55,11 @@ async function loadContent(url, pushState = true) {
 
                     updatePageTheme(url);
                     
-                    // Проверяем наличие библиотеки перед инициализацией
                     if (typeof VanillaTilt !== 'undefined') {
                         VanillaTilt.init(document.querySelectorAll(".nav-card"), {
                             max: 10,
                             speed: 800,
-                            glare: true,
+                            glare: false,
                             "max-glare": 0.2,
                             scale: 1.02,
                             perspective: 1200,

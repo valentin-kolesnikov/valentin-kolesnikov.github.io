@@ -4,20 +4,23 @@ body.theme-youtube {
     --card-border: rgba(255, 0, 51, 0.4);
     --nav-hover-bg: rgba(255, 0, 51, 0.1);
     
-    /* Добавляем красный оттенок */
     --bg-dark: #120204;
     --text-color: #fff0f2;
+
+    --header-bg: rgba(18, 2, 4, 0.6);
+    --card-bg: rgba(35, 15, 20, 0.4);
+    --overlay-bg: rgba(2, 8, 19, 0.6);
+    --menu-bg: #1a0508;
 }
 
 body.light-theme.theme-youtube {
     --bg-dark: #fff5f7;
     --text-color: #1f0b0d;
-}
 
-body.theme-youtube .navigation a.active-link {
-    background: rgba(255, 0, 51, 0.05);
-    color: var(--bg-glow);
-    border-color: var(--bg-glow);
+    --header-bg: rgba(255, 245, 247, 0.85);
+    --card-bg: rgba(255, 235, 240, 0.7);
+    --overlay-bg: rgba(245, 250, 255, 0.6);
+    --menu-bg: #fff5f7;
 }
 
 body.theme-youtube .nav-card:hover {
