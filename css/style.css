@@ -294,7 +294,7 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     padding: 30px;
     display: flex; flex-direction: column; justify-content: space-between;
     min-height: 240px; text-decoration: none; color: var(--text-color);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative; overflow: hidden; transform-style: preserve-3d;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
     outline: 1px solid transparent; transform: translateZ(0);
@@ -376,14 +376,12 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
 
 @media (max-width: 768px) {
     .btn-github {
-        position: static;
-        display: block;
-        width: fit-content;
-        margin-top: 20px;
-        font-size: 1rem;
-        padding: 15px 30px;
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    font-size: 1rem;
+    padding: 10px 15px;
     }
-    
     .project-title {
         padding-right: 0;
     }
