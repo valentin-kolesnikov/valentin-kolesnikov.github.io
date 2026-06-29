@@ -3,7 +3,6 @@ const translations = {
         brandName: "Valentin Kolesnikov",
 
         themeBtn: "Theme",
-        backBtn: "← Back to Main Menu",
         githubBtn: "View on GitHub",
         home: "About Me",
         musicBtn: "Music",
@@ -255,7 +254,6 @@ const translations = {
         brandName: "Валентин Колесников",
 
         themeBtn: "Тема",
-        backBtn: "← На Главную",
         githubBtn: "Смотреть на GitHub",
         home: "Обо мне",
         musicBtn: "Музыка",

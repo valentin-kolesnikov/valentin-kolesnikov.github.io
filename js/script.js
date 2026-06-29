@@ -204,26 +204,6 @@ document.addEventListener('click', (event) => {
     }
 });
 
-function goHome(event) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const link = event.target.closest('.back-link');
-    const main = document.querySelector('main');
-
-    if (link) {
-        link.classList.add('fly-away');
-
-        if (main) {
-            main.style.opacity = '0';
-        }
-
-        setTimeout(() => {
-            loadContent('index.html'); 
-        }, 50);
-    }
-}
-
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
