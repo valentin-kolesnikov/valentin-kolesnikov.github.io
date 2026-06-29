@@ -55,6 +55,7 @@ async function loadContent(url, pushState = true) {
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('valentin_lang') || 'en';
     currentLang = savedLang;
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (volSlider && bgMusic) {
         volSlider.value = 0.75;
         bgMusic.volume = 0.5;
-        volSlider.addEventListener('input', (e) => bgMusic.volume = e.target.value);
+        volSlider.addEventListener('input', (event) => bgMusic.volume = event.target.value);
     }
 
     const wrapper = document.getElementById('music-wrapper');
@@ -167,12 +168,12 @@ function toggleLanguage() {
     applyTranslations();
 }
 
-window.addEventListener('popstate', (e) => {
+window.addEventListener('popstate', (event) => {
     loadContent(window.location.href, false);
 });
 
-function toggleVolume(e) {
-    if (e) e.stopPropagation();
+function toggleVolume(event) {
+    if (event) event.stopPropagation();
     const popup = document.getElementById('volume-popup');
     const btn = document.getElementById('volume-btn');
     const wrapper = document.getElementById('music-wrapper');
@@ -189,13 +190,13 @@ function toggleVolume(e) {
     }
 }
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', (event) => {
     const popup = document.getElementById('volume-popup');
     const btn = document.getElementById('volume-btn');
     const wrapper = document.getElementById('music-wrapper');
     
     if (popup && popup.classList.contains('active')) {
-        if (!popup.contains(e.target) && !btn.contains(e.target)) {
+        if (!popup.contains(event.target) && !btn.contains(event.target)) {
             popup.classList.remove('active');
             if (btn) btn.classList.remove('active');
             if (wrapper) wrapper.classList.remove('volume-open');
@@ -203,11 +204,11 @@ document.addEventListener('click', (e) => {
     }
 });
 
-function goHome(e) {
-    e.preventDefault();
-    e.stopPropagation();
+function goHome(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    const link = e.target.closest('.back-link');
+    const link = event.target.closest('.back-link');
     const main = document.querySelector('main');
 
     if (link) {
