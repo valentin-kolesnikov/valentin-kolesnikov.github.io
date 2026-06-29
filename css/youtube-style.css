@@ -11,6 +11,9 @@ body.theme-youtube {
     --card-bg: rgba(35, 15, 20, 0.4);
     --overlay-bg: rgba(2, 8, 19, 0.6);
     --menu-bg: #1a0508;
+
+    --theme-base: #FF0033;
+    --theme-base-rgb: 255, 0, 51;
 }
 
 body.light-theme.theme-youtube {
@@ -21,6 +24,9 @@ body.light-theme.theme-youtube {
     --card-bg: rgba(255, 235, 240, 0.7);
     --overlay-bg: rgba(245, 250, 255, 0.6);
     --menu-bg: #fff5f7;
+
+    --theme-base: #FF0033;
+    --theme-base-rgb: 255, 0, 51;
 }
 
 body.theme-youtube .nav-card:hover {

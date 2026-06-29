@@ -12,6 +12,8 @@
     --selection-bg: var(--bg-glow);
     --selection-color: #ffffff;
     --overlay-bg: rgba(2, 8, 19, 0.6);
+    --theme-base: #00A3FF; 
+    --theme-base-rgb: 0, 163, 255;
 }
 
 body.light-theme { 
@@ -28,6 +30,8 @@ body.light-theme {
     --selection-bg: var(--bg-glow);
     --selection-color: #ffffff;
     --overlay-bg: rgba(245, 250, 255, 0.6);
+    --theme-base: #33C1FF;
+    --theme-base-rgb: 51, 193, 255;
 }
 
 ::selection {
@@ -192,25 +196,21 @@ header {
     overflow: hidden; 
 }
 
+/* Hover and active states for navigation links */
 .navigation a:hover, 
-.navigation button.nav-link:hover { 
-    background: rgba(160, 186, 204, 0.1); 
-    border-color: var(--bg-glow); 
-    box-shadow: 0 0 25px rgba(0, 163, 255, 0.2);
-    padding-left: 35px; 
-    color: var(--text-color); 
-}
-
-.navigation a.active-link {
-    border-color: var(--bg-glow);
-    background: rgba(0, 163, 255, 0.05); 
-    color: var(--bg-glow);
-    padding-left: 35px; 
-    box-shadow: 0 0 10px rgba(0, 163, 255, 0.15) inset;
+.navigation a.active-link,
+.navigation button.nav-link:hover {
+    color: var(--theme-base);
+    border-color: var(--theme-base);
+    background: rgba(var(--theme-base-rgb), 0.1);
+    box-shadow: 0 0 15px rgba(var(--theme-base-rgb), 0.4), 
+                0 0 5px rgba(var(--theme-base-rgb), 0.2) inset;
 }
 
 .navigation a::before,
 .navigation a.active-link::before {
+    background-color: var(--theme-base);
+    box-shadow: 0 0 8px var(--theme-base);
     content: '';
     position: absolute;
     left: 10px; 
@@ -297,7 +297,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative; overflow: hidden; transform-style: preserve-3d;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
     outline: 1px solid transparent; transform: translateZ(0);
 
@@ -309,6 +308,9 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 15px 40px rgba(0,0,0,.35);
     backdrop-filter: none;
     position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transform-style: preserve-3d;
     z-index: 1;
 }
 

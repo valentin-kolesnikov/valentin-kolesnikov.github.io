@@ -5,67 +5,48 @@ const playlist = [
     'Music/Lofy.mp3',
 ];
 
-function updatePageTheme(url) {
-    document.body.classList.remove('theme-youtube', 'theme-rps');
-
-    if (url.includes('youtube.html')) {
-        document.body.classList.add('theme-youtube');
-    } else if (url.includes('rps.html')) {
-        document.body.classList.add('theme-rps');
-    }
-}
-
 async function loadContent(url, pushState = true) {
     try {
         const res = await fetch(url);
-        if (res.ok) {
-            const html = await res.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const newMain = doc.querySelector('main');
-            const currentMain = document.querySelector('main');
+        if (!res.ok) throw new Error('Page not found');
+        
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newMain = doc.querySelector('main');
+        const currentMain = document.querySelector('main');
 
-            if (newMain && currentMain) {
+        if (newMain && currentMain) {
+            currentMain.style.opacity = '0';
 
-                currentMain.style.opacity = '0';
-
-                setTimeout(() => {
-                    currentMain.innerHTML = newMain.innerHTML;
-                    document.title = doc.title;
-                    
-                    if (pushState) {
-                        let displayUrl = url;
-                        if (displayUrl.includes('index.html')) {
-                            displayUrl = './';
-                        }
-
-                        const currentPath = window.location.pathname;
-                        
-                        const isCurrentlyHome = currentPath.endsWith('/') || currentPath.endsWith('index.html');
-                        const isGoingHome = url === 'index.html' || url === './';
-
-                        if ((isCurrentlyHome && isGoingHome) || currentPath.endsWith(url)) {
-                            history.replaceState({ path: url }, '', displayUrl);
-                        } else {
-                            history.pushState({ path: url }, '', displayUrl);
-                        }
+            setTimeout(() => {
+                currentMain.innerHTML = newMain.innerHTML;
+                document.title = doc.title;
+                
+                
+                document.body.className = document.body.className.replace(/\btheme-\S+/g, '').trim();
+                const newTheme = newMain.getAttribute('data-theme');
+                if (newTheme) {
+                    document.body.classList.add(newTheme);
+                    currentMain.setAttribute('data-theme', newTheme);
+                } else {
+                    currentMain.removeAttribute('data-theme');
+                }
+                
+                if (pushState) {
+                    let displayUrl = url.includes('index.html') ? './' : url;
+                    if (window.location.pathname.endsWith(url) === false) {
+                        history.pushState({ path: url }, '', displayUrl);
                     }
-                    
-                    applyTranslations();
+                }
+                
+                applyTranslations();
+                initVanillaTilt();
+                window.scrollTo(0, 0);
+                updateActiveMenu();
 
-                    updatePageTheme(url);
-
-                    initVanillaTilt();
-                    
-                    window.scrollTo(0, 0);
-                    
-                    updateActiveMenu();
-
-                    currentMain.style.opacity = '1';
-                }, 150);
-            } else {
-                window.location.href = url;
-            }
+                currentMain.style.opacity = '1';
+            }, 150);
         } else {
             window.location.href = url;
         }
@@ -75,22 +56,24 @@ async function loadContent(url, pushState = true) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('valentin_lang');
-    if (savedLang === 'ru') {
-        currentLang = 'ru';
-        applyTranslations();
-    } else {
-        if (document.getElementById('header-lang-btn')) {
-            document.getElementById('header-lang-btn').textContent = 'EN';
-        }
+    const savedLang = localStorage.getItem('valentin_lang') || 'en';
+    currentLang = savedLang;
+    if (document.getElementById('header-lang-btn') && currentLang === 'en') {
+        document.getElementById('header-lang-btn').textContent = 'EN';
     }
+    applyTranslations();
 
     updateActiveMenu();
-
-    updatePageTheme(window.location.href);
-
     initVanillaTilt();
     
+    const initialTheme = document.querySelector('main')?.getAttribute('data-theme');
+    if (initialTheme) document.body.classList.add(initialTheme);
+
+    if (window.location.pathname.endsWith('index.html')) {
+        const newPath = window.location.pathname.replace('index.html', '');
+        window.history.replaceState(null, '', newPath);
+    }
+
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('a');
         if (!link) return;
@@ -98,22 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const href = link.getAttribute('href');
         if (!href) return;
 
-        if (href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+        if (href.endsWith('.html') && !href.startsWith('http')) {
             e.preventDefault();
             const nav = document.getElementById('navigation');
-            if (nav && nav.classList.contains('active')) {
-                toggleMenu();
-            }
+            if (nav && nav.classList.contains('active')) toggleMenu();
             loadContent(href);
-        } else if (href.startsWith('#')) {
+        } 
+        else if (href.startsWith('#')) {
             e.preventDefault();
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
+            const targetElement = document.getElementById(href.substring(1));
             if (targetElement) {
-                const nav = document.getElementById('navigation');
-                if (nav && nav.classList.contains('active')) {
-                    toggleMenu();
-                }
+                if (document.getElementById('navigation')?.classList.contains('active')) toggleMenu();
                 targetElement.scrollIntoView({ behavior: 'smooth' });
                 history.pushState(null, null, href);
             }
@@ -123,30 +101,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const volSlider = document.getElementById('volume-slider');
     const bgMusic = document.getElementById('bg-music');
     if (volSlider && bgMusic) {
-        volSlider.value = 0.5;
+        volSlider.value = 0.75;
         bgMusic.volume = 0.5;
-
-        volSlider.addEventListener('input', (e) => {
-            bgMusic.volume = e.target.value;
-        });
+        volSlider.addEventListener('input', (e) => bgMusic.volume = e.target.value);
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('music-wrapper');
     let hoverTimeout;
-
     if (wrapper) {
         wrapper.addEventListener('mouseenter', () => {
             clearTimeout(hoverTimeout);
             wrapper.classList.add('hover-state');
         });
-
         wrapper.addEventListener('mouseleave', () => {
-            hoverTimeout = setTimeout(() => {
-                wrapper.classList.remove('hover-state');
-            }, 500);
+            hoverTimeout = setTimeout(() => wrapper.classList.remove('hover-state'), 500);
         });
+    }
+
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('active', window.scrollY > 400);
+        }, { passive: true });
     }
 });
 
@@ -174,24 +150,6 @@ function updateActiveMenu() {
         }
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-        if (window.location.pathname.endsWith('index.html')) {
-        const newPath = window.location.pathname.replace('index.html', '');
-        window.history.replaceState(null, '', newPath);
-    }
-
-    const backToTopBtn = document.getElementById('backToTop');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('active');
-            } else {
-                backToTopBtn.classList.remove('active');
-            }
-        });
-    }
-});
 
 function toggleMenu() {
     document.getElementById('navigation').classList.toggle('active');
@@ -370,7 +328,7 @@ function initVanillaTilt() {
         if (cards.length > 0) {
             VanillaTilt.init(cards, {
                 max: 10,
-                speed: 800,
+                speed: 400,
                 glare: false,
                 "max-glare": 0.2,
                 scale: 1.02,
