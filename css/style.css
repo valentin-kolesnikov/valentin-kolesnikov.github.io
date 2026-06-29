@@ -294,7 +294,9 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     padding: 30px;
     display: flex; flex-direction: column; justify-content: space-between;
     min-height: 240px; text-decoration: none; color: var(--text-color);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative; overflow: hidden; transform-style: preserve-3d;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
     outline: 1px solid transparent; transform: translateZ(0);
@@ -315,7 +317,7 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     background: none !important;
 }
 
-.nav-card:hover { transform: translateY(-7px); background-color: rgba(0, 163, 255, 0.1); border-color: var(--bg-glow); box-shadow: 0 0 20px rgba(0, 163, 255, 0.3); }
+.nav-card:hover { background-color: rgba(0, 163, 255, 0.1); border-color: var(--bg-glow); box-shadow: 0 0 20px rgba(0, 163, 255, 0.3); }
 .nav-card h3 { font-size: 2.5rem; margin: 0 0 10px 0; }
 .nav-card p { font-family: 'Segoe UI', sans-serif; font-size: 1rem; color: var(--accent-color); line-height: 1.4; }
 .arrow { align-self: flex-end; font-size: 1.5rem; opacity: 0.6; transition: 0.3s; font-family: sans-serif; margin-top: auto; }

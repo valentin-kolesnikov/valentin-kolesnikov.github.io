@@ -54,19 +54,8 @@ async function loadContent(url, pushState = true) {
                     applyTranslations();
 
                     updatePageTheme(url);
-                    
-                    if (typeof VanillaTilt !== 'undefined') {
-                        VanillaTilt.init(document.querySelectorAll(".nav-card"), {
-                            max: 10,
-                            speed: 800,
-                            glare: false,
-                            "max-glare": 0.2,
-                            scale: 1.02,
-                            perspective: 1200,
-                            easing: "cubic-bezier(0.25, 0.8, 0.25, 1)"
-                        });
-                    }
-                    
+
+                    initVanillaTilt();
                     
                     window.scrollTo(0, 0);
                     
@@ -99,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveMenu();
 
     updatePageTheme(window.location.href);
+
+    initVanillaTilt();
     
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('a');
@@ -369,6 +360,23 @@ function updateUI(isPlaying) {
         if (isPlaying) {
             mobileControls.style.display = 'flex'; 
             setTimeout(() => mobileControls.classList.add('active'), 10);
+        }
+    }
+}
+
+function initVanillaTilt() {
+    if (typeof VanillaTilt !== 'undefined') {
+        const cards = document.querySelectorAll(".nav-card");
+        if (cards.length > 0) {
+            VanillaTilt.init(cards, {
+                max: 10,
+                speed: 800,
+                glare: false,
+                "max-glare": 0.2,
+                scale: 1.02,
+                perspective: 1200,
+                easing: "cubic-bezier(0.25, 0.8, 0.25, 1)"
+            });
         }
     }
 }
