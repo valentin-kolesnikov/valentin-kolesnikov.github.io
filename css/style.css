@@ -468,6 +468,10 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 
 ::-webkit-scrollbar-thumb:hover { background: var(--bg-glow); }
 
+.nav-mobile-controls { 
+    display: none;
+}
+
 @media (max-width: 750px) {
     header { padding: 15px 15px; }
     header .nav-footer { display: none !important; }
@@ -615,8 +619,6 @@ h2 { border-bottom: none; }
 
 :lang(ru) h1, :lang(ru) h2, :lang(ru) h3, :lang(ru) .project-title, :lang(ru) .brand h1 { font-family: 'Marck Script', cursive; font-weight: 400; line-height: 1.2; }
 :lang(ru) .brand h1 { font-size: 2.3rem; margin-top: 5px; }
-
-.nav-mobile-controls { display: none;}
 
 .back-to-top {
     position: fixed; 
