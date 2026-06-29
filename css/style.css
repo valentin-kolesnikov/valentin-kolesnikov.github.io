@@ -98,9 +98,27 @@ header {
     margin-bottom: 0;
 }
 
-.brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-color); }
-.brand img { height: 45px; width: auto; object-fit: contain; aspect-ratio: 3/2; filter: drop-shadow(0 0 100px var(--bg-glow)); }
-.brand h1 { margin: 0; font-size: 2rem; white-space: nowrap; }
+.brand { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-decoration: none; 
+    color: var(--text-color); 
+}
+
+.brand img { 
+    height: 45px; 
+    width: auto; 
+    object-fit: contain; 
+    aspect-ratio: 3/2; 
+    filter: drop-shadow(0 0 100px var(--bg-glow)); 
+}
+
+.brand h1 { 
+    margin: 0; 
+    font-size: 2rem; 
+    white-space: nowrap; 
+}
 
 .menu-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 6px; padding: 5px; }
 .menu-btn span { width: 30px; height: 2px; background-color: var(--text-color); transition: 0.3s; }
@@ -450,78 +468,10 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
 
 ::-webkit-scrollbar-thumb:hover { background: var(--bg-glow); }
 
-@media (max-width: 600px) {
-    header { padding: 15px 15px; }
-    .brand h1 { font-size: 1.4rem; }
-    .brand img { height: 35px; width: auto; }
-    header > div:first-child { gap: 10px !important; }
-    .responsive-banner { margin-left: 5px; }
-    .back-to-top { right: 20px; bottom: 20px; }
-    :lang(ru) .brand h1 { font-size: 1.6rem !important; margin-top: 2px; }
-}
-
-@media (max-width: 370px) {
-    .brand h1 { font-size: 1.2rem; }
-    :lang(ru) .brand h1 { font-size: 1.3rem !important; }
-}
-
-.nav-card:active {
-    transform: scale(0.99) translateZ(0) !important;
-    border-color: var(--bg-glow);
-    background-color: rgba(0, 163, 255, 0.08);
-    box-shadow: 0 0 20px rgba(0, 163, 255, 0.25); 
-    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.back-link:active { 
-    transform: scale(0.95) translateX(-5px); 
-    color: var(--bg-glow); 
-    transition: transform 0.05s ease-out; 
-}
-
-.menu-btn:active, .theme-btn:active, .btn-github:active { 
-    transform: scale(0.90); 
-    transition: transform 0.05s; }
-.theme-btn span, .theme-btn i {
-    pointer-events: none;
-}
-.fly-away { 
-    transform: translateX(-120vw) !important; 
-    opacity: 0; 
-    transition: all 0.4s ease-in !important; }
-.content a { 
-    color: #89CFF0; 
-    text-decoration: none; 
-    transition: color 0.3s; }
-.content a:hover { 
-    color: var(--bg-glow); 
-    text-decoration: underline; }
-
-.inline-code { padding: 2px 6px; 
-    border-radius: 4px; 
-    border: 1px solid var(--accent-color); 
-    background: rgba(160, 186, 204, 0.1); 
-    color: var(--text-color); 
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.9em; }
-
-h1, h2, h3 { scroll-margin-top: 110px; }
-h1 { border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding-bottom: 15px; margin-bottom: 25px; }
-h2 { border-bottom: none; }
-
-.banner-container { text-align: left; margin-bottom: 20px; }
-.responsive-banner { max-width: 100%; height: auto; display: block; margin-left: 20px; border-radius: 8px; }
-
-.brand h1 { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-
-:lang(ru) h1, :lang(ru) h2, :lang(ru) h3, :lang(ru) .project-title, :lang(ru) .brand h1 { font-family: 'Marck Script', cursive; font-weight: 400; line-height: 1.2; }
-:lang(ru) .brand h1 { font-size: 2.3rem; margin-top: 5px; }
-
-.nav-mobile-controls { display: none;}
-
-@media (max-width: 809px) {
+@media (max-width: 750px) {
     header { padding: 15px 15px; }
     header .nav-footer { display: none !important; }
-    .brand h1 { font-size: 1.4rem; }
+    .brand h1 { font-size: 2rem; }
     .brand img { height: 35px; width: auto; }
     header > div:first-child { gap: 10px !important; }
 
@@ -599,6 +549,74 @@ h2 { border-bottom: none; }
     
     :lang(ru) .brand h1 { font-size: 1.6rem !important; margin-top: 2px; }
 }
+
+@media (max-width: 600px) {
+    header { padding: 15px 15px; }
+    .brand h1 { font-size: 1.9rem; }
+    .brand img { height: 35px; width: auto; }
+    header > div:first-child { gap: 10px !important; }
+    .responsive-banner { margin-left: 5px; }
+    .back-to-top { right: 20px; bottom: 20px; }
+    :lang(ru) .brand h1 { font-size: 1.6rem !important; margin-top: 2px; }
+}
+
+@media (max-width: 370px) {
+    .brand h1 { font-size: 1.5rem; }
+    :lang(ru) .brand h1 { font-size: 1.3rem !important; }
+}
+
+.nav-card:active {
+    transform: scale(0.99) translateZ(0) !important;
+    border-color: var(--bg-glow);
+    background-color: rgba(0, 163, 255, 0.08);
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.25); 
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.back-link:active { 
+    transform: scale(0.95) translateX(-5px); 
+    color: var(--bg-glow); 
+    transition: transform 0.05s ease-out; 
+}
+
+.menu-btn:active, .theme-btn:active, .btn-github:active { 
+    transform: scale(0.90); 
+    transition: transform 0.05s; }
+.theme-btn span, .theme-btn i {
+    pointer-events: none;
+}
+.fly-away { 
+    transform: translateX(-120vw) !important; 
+    opacity: 0; 
+    transition: all 0.4s ease-in !important; }
+.content a { 
+    color: #89CFF0; 
+    text-decoration: none; 
+    transition: color 0.3s; }
+.content a:hover { 
+    color: var(--bg-glow); 
+    text-decoration: underline; }
+
+.inline-code { padding: 2px 6px; 
+    border-radius: 4px; 
+    border: 1px solid var(--accent-color); 
+    background: rgba(160, 186, 204, 0.1); 
+    color: var(--text-color); 
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace; font-size: 0.9em; }
+
+h1, h2, h3 { scroll-margin-top: 110px; }
+h1 { border-bottom: 1px solid rgba(255, 255, 255, 0.3); padding-bottom: 15px; margin-bottom: 25px; }
+h2 { border-bottom: none; }
+
+.banner-container { text-align: left; margin-bottom: 20px; }
+.responsive-banner { max-width: 100%; height: auto; display: block; margin-left: 20px; border-radius: 8px; }
+
+.brand h1 { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+:lang(ru) h1, :lang(ru) h2, :lang(ru) h3, :lang(ru) .project-title, :lang(ru) .brand h1 { font-family: 'Marck Script', cursive; font-weight: 400; line-height: 1.2; }
+:lang(ru) .brand h1 { font-size: 2.3rem; margin-top: 5px; }
+
+.nav-mobile-controls { display: none;}
 
 .back-to-top {
     position: fixed; 
@@ -822,3 +840,17 @@ body::before {
     z-index: 0;
 }
 
+#music-controls-mobile {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+#music-controls-mobile.active {
+    max-height: 60px;
+    opacity: 1;
+}

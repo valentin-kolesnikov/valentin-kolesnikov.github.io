@@ -66,16 +66,22 @@
         <a href="index.html" data-i18n="home">About Me</a>
 
         <div class="nav-mobile-controls">
-            <button class="theme-btn" onclick="toggleMusic()">
-                <span data-i18n="MusicBtn">Music</span> <span id="music-icon-mobile" style="margin-left: 3px;">▶</span>
-            </button>
+            <div style="display: flex; flex-direction: column; width: 100%;">
+                <button class="theme-btn" onclick="toggleMusic()">
+                    <span data-i18n="MusicBtn">Music</span> <span id="music-icon-mobile" style="margin-left: 3px;">▶</span>
+                </button>
+                <div id="music-controls-mobile">
+                    <button class="theme-btn" style="flex:1;" onclick="prevTrack()">⏮</button>
+                    <button class="theme-btn" style="flex:1;" onclick="restartTrack()">↺</button>
+                    <button class="theme-btn" style="flex:1;" onclick="nextTrack()">⏭</button>
+                </div>
+            </div>
 
             <button class="theme-btn" onclick="toggleLanguage()">
                 <span id="lang-display-mobile">EN</span>
             </button>
             <button class="theme-btn" onclick="toggleTheme()" data-i18n="themeBtn">Theme</button>
         </div>
-
     </nav>
 
     <main data-theme="theme-youtube">

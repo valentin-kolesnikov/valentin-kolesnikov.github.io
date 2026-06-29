@@ -1,4 +1,4 @@
-let currentLang = 'en';
+let currentLang = localStorage.getItem('valentin_lang') || 'en';
 let isMusicPlaying = false;
 let currentTrackIndex = 0;
 const playlist = [
@@ -57,11 +57,6 @@ async function loadContent(url, pushState = true) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('valentin_lang') || 'en';
-    currentLang = savedLang;
-    if (document.getElementById('header-lang-btn') && currentLang === 'en') {
-        document.getElementById('header-lang-btn').textContent = 'EN';
-    }
     applyTranslations();
 
     updateActiveMenu();
@@ -284,22 +279,12 @@ function updateUI(isPlaying) {
     }
 
     const controls = document.getElementById('music-controls');
-    const hasSource = musicElement && (musicElement.src || musicElement.currentSrc);
 
-    if (controls) {
-        if (hasSource) {
-            controls.classList.add('playable');
-        } else {
-            controls.classList.remove('playable');
-        }
-    }
+    controls.classList.add('playable');
 
     const mobileControls = document.getElementById('music-controls-mobile');
     if (mobileControls) {
-        if (isPlaying) {
-            mobileControls.style.display = 'flex'; 
-            setTimeout(() => mobileControls.classList.add('active'), 10);
-        }
+        mobileControls.classList.toggle('active', isPlaying);
     }
 }
 
