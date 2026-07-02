@@ -5,6 +5,17 @@ const playlist = [
     'Music/Lofy.mp3',
 ];
 
+const originalTexts = {};
+
+function saveOriginalTexts() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (!originalTexts[key]) {
+            originalTexts[key] = el.innerHTML;
+        }
+    });
+}
+
 async function loadContent(url, pushState = true) {
     try {
         const res = await fetch(url);
@@ -128,9 +139,16 @@ function applyTranslations() {
     if (menuDisplay) menuDisplay.textContent = currentLang.toUpperCase();
     const mobileDisplay = document.getElementById('lang-display-mobile');
     if (mobileDisplay) mobileDisplay.textContent = currentLang.toUpperCase();
+    
+    saveOriginalTexts();
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[currentLang] && translations[currentLang][key]) {
+        if (currentLang === 'en') {
+            if (originalTexts[key] !== undefined) {
+                el.innerHTML = originalTexts[key];
+            }
+        } else if (translations[currentLang] && translations[currentLang][key]) {
             el.innerHTML = translations[currentLang][key];
         }
     });
