@@ -856,3 +856,144 @@ body::before {
     max-height: 60px;
     opacity: 1;
 }
+
+/* ===== Collapsible Table of Contents ===== */
+.toc-widget {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    scroll-margin-top: 110px;
+    transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.toc-widget.active {
+    border-color: var(--bg-glow);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--bg-glow) 25%, transparent);
+}
+
+.toc-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 25px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: left;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.toc-toggle:hover {
+    background-color: var(--nav-hover-bg);
+}
+
+.toc-toggle:focus-visible {
+    outline: 2px solid var(--bg-glow);
+    outline-offset: -2px;
+}
+
+.toc-toggle-text {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+:lang(ru) .toc-toggle-text {
+    font-family: 'Marck Script', cursive;
+    font-weight: 400;
+}
+
+.toc-chevron {
+    flex-shrink: 0;
+    color: var(--accent-color);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s;
+}
+
+.toc-widget.active .toc-chevron {
+    transform: rotate(180deg);
+    color: var(--bg-glow);
+}
+
+.toc-panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease,
+                overflow 0s linear 0s;
+}
+
+.toc-widget.active .toc-panel {
+    opacity: 1;
+    overflow: visible;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease,
+                overflow 0s linear 0.4s;
+}
+
+.toc-panel-inner {
+    padding: 0 25px 25px;
+}
+
+.toc-panel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.toc-panel > .toc-panel-inner > ul > li {
+    margin-bottom: 10px;
+}
+
+.toc-panel li {
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+.toc-panel ul ul {
+    margin: 10px 0 14px 10px;
+    padding-left: 18px;
+    border-left: 1px solid var(--card-border);
+}
+
+.toc-panel ul ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.toc-panel a {
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.toc-panel a:hover {
+    transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toc-widget,
+    .toc-toggle,
+    .toc-chevron,
+    .toc-panel,
+    .toc-widget.active .toc-panel,
+    .toc-panel a {
+        transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .toc-toggle { padding: 15px 18px; }
+    .toc-toggle-text { font-size: 1.4rem; }
+    .toc-panel-inner { padding: 0 18px 20px; }
+}

@@ -89,6 +89,50 @@
             <h2 class="project-title">YouTube Explorer</h2>
             <div class="project-meta" data-i18n="ye_meta">Python • Terminal-app • Data parsing</div>
             <div class="content">
+<div class="toc-widget" id="table-of-contents">
+    <button type="button" class="toc-toggle" onclick="toggleTOC()" aria-expanded="false" aria-controls="toc-panel">
+        <span class="toc-toggle-text" data-i18n="toc_title">🗒️Table of Contents</span>
+        <svg class="toc-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+    </button>
+
+    <div class="toc-panel" id="toc-panel">
+        <div class="toc-panel-inner">
+            <ul>
+                <li><a href="#youtube-explorer">🗔 YouTube Explorer</a></li>
+                <li><a href="#requirements" data-i18n="toc_req">❗Requirements</a></li>
+                <li><a href="#how-to-download" data-i18n="toc_down">🌐How to download?</a></li>
+                <li><a href="#how-to-get-the-youtube-data-api-v3-key" data-i18n="toc_apikey">❓How to get the YouTube Data API v3 key?</a></li>
+                <li><a href="#how-to-get-oauth-credentials" data-i18n="toc_oauth">🛡️How to get OAuth 2.0 credentials?</a></li>
+                <li>
+                    <a href="#core-capabilities" data-i18n="toc_core">Core capabilities</a>
+                    <ul>
+                        <li><a href="#youtube-api-key-handling" data-i18n="toc_core_key">🔑YouTube API key handling</a></li>
+                        <li><a href="#quota-inspection" data-i18n="toc_core_quota">🚪Quota inspection</a></li>
+                        <li><a href="#comment-explorer" data-i18n="toc_core_comment">💌Comment Explorer</a></li>
+                        <li><a href="#video-explorer" data-i18n="toc_core_video">📹Video Explorer</a></li>
+                        <li><a href="#channel-explorer" data-i18n="toc_core_channel">📈Channel Explorer</a></li>
+                        <li><a href="#playlist-explorer" data-i18n="toc_play">🗂️Playlist Explorer</a></li>
+                        <li><a href="#subtitles-explorer" data-i18n="toc_core_subs">📄Subtitles Explorer</a></li>
+                        <li><a href="#info-explorer" data-i18n="toc_core_info">🔢Info Explorer</a></li>
+                    </ul>
+                </li>
+                <li><a href="#functionality" data-i18n="toc_func">⚙️Functionality</a></li>
+                <li><a href="#license" data-i18n="toc_license">🖌️License</a></li>
+                <li>
+                    <a href="#contributing" data-i18n="toc_contrib">❤️Contributing</a>
+                    <ul>
+                        <li><a href="#how-to-contribute" data-i18n="toc_how">🤝How to contribute</a></li>
+                        <li><a href="#donations" data-i18n="toc_don">💰Donations</a></li>
+                        <li><a href="#issues" data-i18n="toc_issues">❓Issues</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
 <div class="banner-container">
     <img src="Images/GeneralYE.png" alt="YouTube Explorer" class="responsive-banner" loading="lazy">
 </div>
@@ -117,34 +161,6 @@
 <li data-i18n="ye_list_3">Searching videos and retrieving playlists</li>
 <li data-i18n="ye_list_4">Extracting metadata</li>
 <li data-i18n="ye_list_5">Collecting subtitles</li>
-</ul><br>
-
-<h1 id="table-of-contents" data-i18n="toc_title">🗒️Table of Contents</h1>
-<ul>
-<li><a href="#table-of-contents" data-i18n="toc_toc">🗒️Table of Contents</a></li>
-<li><a href="#requirements" data-i18n="toc_req">❗Requirements</a></li>
-<li><a href="#how-to-download" data-i18n="toc_down">🌐How to download?</a></li>
-<li><a href="#how-to-get-the-youtube-data-api-v3-key" data-i18n="toc_apikey">❓How to get the YouTube Data API v3 key?</a></li>
-<li><a href="#how-to-get-oauth-credentials" data-i18n="toc_oauth">🛡️ How to get OAuth 2.0 credentials?</a></li>
-<li><a href="#core-capabilities" data-i18n="toc_core">Core capabilities</a></li>
-<ul>
-<li><a href="#youtube-api-key-handling" data-i18n="toc_core_key">🔑YouTube API key handling</a></li>
-<li><a href="#quota-inspection" data-i18n="toc_core_quota">🚪Quota inspection</a></li>
-<li><a href="#comment-explorer" data-i18n="toc_core_comment">💌Comment Explorer</a></li>
-<li><a href="#video-explorer" data-i18n="toc_core_video">📹Video Explorer</a></li>
-<li><a href="#channel-explorer" data-i18n="toc_core_channel">📈Channel Explorer</a></li>
-<li><a href="#playlist-explorer" data-i18n="toc_play">🗂️Playlist Explorer</a></li>
-<li><a href="#subtitles-explorer" data-i18n="toc_core_subs">📄Subtitles Explorer</a></li>
-<li><a href="#info-explorer" data-i18n="toc_core_info">🔢Info Explorer</a></li>
-</ul>
-<li><a href="#functionality" data-i18n="toc_func">⚙️ Functionality</a></li>
-<li><a href="#license" data-i18n="toc_license">🖌️License</a></li>
-<li><a href="#contributing" data-i18n="toc_contrib">❤️Contributing</a></li>
-<ul>
-<li><a href="#how-to-contribute" data-i18n="toc_how">🤝How to contribute</a></li>
-<li><a href="#donations" data-i18n="toc_don">💰Donations</a></li>
-<li><a href="#issues" data-i18n="toc_issues">❓Issues</a></li>
-</ul>
 </ul><br>
 
 <h1 id="requirements" data-i18n="req_title">❗Requirements</h1>

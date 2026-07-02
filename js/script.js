@@ -134,6 +134,11 @@ function applyTranslations() {
             el.innerHTML = translations[currentLang][key];
         }
     });
+
+    const openTocPanel = document.querySelector('#table-of-contents.active #toc-panel');
+    if (openTocPanel) {
+        openTocPanel.style.maxHeight = openTocPanel.scrollHeight + 'px';
+    }
 }
 
 function updateActiveMenu() {
@@ -161,6 +166,18 @@ function toggleLanguage() {
     currentLang = currentLang === 'en' ? 'ru' : 'en';
     localStorage.setItem('valentin_lang', currentLang);
     applyTranslations();
+}
+
+function toggleTOC() {
+    const widget = document.getElementById('table-of-contents');
+    const panel = document.getElementById('toc-panel');
+    if (!widget || !panel) return;
+
+    const isOpen = widget.classList.toggle('active');
+    const btn = widget.querySelector('.toc-toggle');
+    if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+    panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
 }
 
 window.addEventListener('popstate', (event) => {

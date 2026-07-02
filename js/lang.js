@@ -35,7 +35,6 @@ const translations = {
         ye_list_5: "Collecting subtitles",
         
         toc_title: "🗒️Table of Contents",
-        toc_toc: "🗒️Table of Contents",
         toc_req: "❗Requirements",
         toc_down: "🌐How to download?",
         toc_apikey: "❓How to get the YouTube Data API v3 key?",
