@@ -7,6 +7,10 @@ const playlist = [
 
 const originalTexts = {};
 
+let tocHeadings = [];
+let tocLinkMap = new Map();
+let tocScrollSpyTicking = false;
+
 function saveOriginalTexts() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -53,6 +57,7 @@ async function loadContent(url, pushState = true) {
                 
                 applyTranslations();
                 initVanillaTilt();
+                initTocScrollSpy();
                 window.scrollTo(0, 0);
                 updateActiveMenu();
 
@@ -72,7 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateActiveMenu();
     initVanillaTilt();
-    
+    initTocScrollSpy();
+
+    window.addEventListener('scroll', () => {
+        if (!tocScrollSpyTicking) {
+            tocScrollSpyTicking = true;
+            window.requestAnimationFrame(() => {
+                updateTocScrollSpy();
+                tocScrollSpyTicking = false;
+            });
+        }
+    }, { passive: true });
+
     const initialTheme = document.querySelector('main')?.getAttribute('data-theme');
     if (initialTheme) document.body.classList.add(initialTheme);
 
@@ -196,6 +212,43 @@ function toggleTOC() {
     if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 
     panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
+}
+
+function initTocScrollSpy() {
+    const panel = document.getElementById('toc-panel');
+    tocHeadings = [];
+    tocLinkMap = new Map();
+    if (!panel) return;
+
+    panel.querySelectorAll('a[href^="#"]').forEach(link => {
+        const id = decodeURIComponent(link.getAttribute('href').slice(1));
+        const heading = document.getElementById(id);
+        if (heading) {
+            tocHeadings.push(heading);
+            tocLinkMap.set(id, link);
+        }
+    });
+
+    updateTocScrollSpy();
+}
+
+function updateTocScrollSpy() {
+    if (!tocHeadings.length) return;
+
+    const offset = 130;
+    let activeHeading = tocHeadings[0];
+
+    for (const heading of tocHeadings) {
+        if (heading.getBoundingClientRect().top - offset <= 0) {
+            activeHeading = heading;
+        } else {
+            break;
+        }
+    }
+
+    tocLinkMap.forEach(link => link.classList.remove('toc-active'));
+    const activeLink = tocLinkMap.get(activeHeading.id);
+    if (activeLink) activeLink.classList.add('toc-active');
 }
 
 window.addEventListener('popstate', (event) => {

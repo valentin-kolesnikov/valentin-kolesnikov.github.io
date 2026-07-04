@@ -289,6 +289,41 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
 .about-section h2 { font-size: 3.5rem; margin-bottom: 20px; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 .about-section p { font-size: 1.2rem; color: var(--accent-color); max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
+.error-page { text-align: center; padding: 40px 20px 60px; position: relative; z-index: 1; }
+.error-code {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 8rem;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--bg-glow);
+    text-shadow: 0 0 25px var(--bg-glow);
+}
+.error-page h2 { font-size: 2.2rem; margin-bottom: 16px; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+.error-page p { font-size: 1.1rem; color: var(--accent-color); max-width: 500px; margin: 0 auto 35px; line-height: 1.6; font-family: 'Segoe UI', sans-serif; }
+.error-home-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.3s;
+}
+.error-home-btn:hover {
+    background: var(--bg-glow);
+    border-color: var(--bg-glow);
+    color: #000;
+    box-shadow: 0 0 20px var(--bg-glow);
+}
+
+@media (max-width: 600px) {
+    .error-code { font-size: 5.5rem; }
+    .error-page h2 { font-size: 1.6rem; }
+}
+
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; position: relative; z-index: 1; }
 
 .nav-card[href*="youtube.html"]:hover {
@@ -424,13 +459,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
         padding-right: 0;
     }
 }
-
-.back-link { 
-    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-weight: 600; font-family: 'Segoe UI', sans-serif; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); padding: 8px 12px; border-radius: 8px; margin-left: -12px; 
-}
-.back-link:hover { transform: translateX(-5px); color: var(--bg-glow); text-shadow: 0 0 8px rgba(0, 163, 255, 0.4); }
-.back-link:hover::first-letter { display: inline-block; }
 
 footer { text-align: center; padding: 30px; background: var(--header-bg); border-top: 1px solid var(--card-border); margin-top: auto; position: relative; z-index: 1; }
 .socials a { color: var(--accent-color); margin: 0 10px; text-decoration: none; font-weight: bold; transition: 0.3s; font-family: 'Segoe UI', sans-serif; }
@@ -577,22 +605,12 @@ footer { text-align: center; padding: 30px; background: var(--header-bg); border
     transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.back-link:active { 
-    transform: scale(0.95) translateX(-5px); 
-    color: var(--bg-glow); 
-    transition: transform 0.05s ease-out; 
-}
-
 .menu-btn:active, .theme-btn:active, .btn-github:active { 
     transform: scale(0.90); 
     transition: transform 0.05s; }
 .theme-btn span, .theme-btn i {
     pointer-events: none;
 }
-.fly-away { 
-    transform: translateX(-120vw) !important; 
-    opacity: 0; 
-    transition: all 0.4s ease-in !important; }
 .content a { 
     color: #89CFF0; 
     text-decoration: none; 
@@ -979,6 +997,11 @@ body::before {
 
 .toc-panel a:hover {
     transform: translateX(4px);
+}
+
+.toc-panel a.toc-active {
+    color: var(--bg-glow);
+    font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {

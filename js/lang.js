@@ -34,7 +34,7 @@ const translations = {
         ye_list_4: "Извлечения метаданных",
         ye_list_5: "Сбора субтитров",
         
-        toc_title: "🗒️Оглавление",
+        toc_title: "Оглавление",
         toc_req: "❗Требования",
         toc_down: "🌐 Как скачать?",
         toc_apikey: "❓ Как получить ключ YouTube Data API v3?",
@@ -250,6 +250,10 @@ const translations = {
         lb_how_title: "Как использовать?",
         lb_how_list: "<li>Откройте файл <code class='inline-code'>.exe</code> или <code class='inline-code'>.py</code>.</li> <li>Выберите режим: 1 = только основная информация; 2 = основная + дополнительная информация.</li> <li>Чтобы остановить ввод, введите: <code class='inline-code'>stop</code>, <code class='inline-code'>enough</code>, <code class='inline-code'>yes</code>, <code class='inline-code'>-</code> или нажмите <code class='inline-code'>Enter</code>.</li> <li>Скрипт выведет ваши записи в виде отформатированного нумерованного списка.</li>",
         
-        lb_footer: "Я завершил этот проект. Если я найду ошибки, я исправлю их как небольшие исправления. Однако их быть не должно."
+        lb_footer: "Я завершил этот проект. Если я найду ошибки, я исправлю их как небольшие исправления. Однако их быть не должно.",
+
+        err_heading: "Страница не найдена",
+        err_text: "Похоже, такой страницы не существует или она была перемещена. Возможно, ссылка устарела или в адресе есть опечатка.",
+        err_button: "На главную"
     }
 };
