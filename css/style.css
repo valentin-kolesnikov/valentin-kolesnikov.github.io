@@ -5,7 +5,7 @@
     --header-bg: rgba(2, 8, 19, 0.6); 
     --accent-color: #a0bacc; 
     --menu-bg: #050b14; 
-    --card-bg: rgba(20, 25, 35, 0.4); 
+    --card-bg: rgba(20, 25, 35, 0.2); 
     --card-border: rgba(160, 186, 204, 0.3);
     --nav-hover-bg: rgba(255, 255, 255, 0.05);
     
@@ -44,6 +44,29 @@ body.light-theme {
     background-color: var(--selection-bg);
     color: var(--selection-color);
     text-shadow: none;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 15% 10%,
+            color-mix(in srgb, var(--bg-glow) 18%, transparent) 0%,
+            transparent 35%),
+        radial-gradient(circle at 90% 85%,
+            color-mix(in srgb, var(--bg-glow) 12%, transparent) 0%,
+            transparent 30%);
+
+    z-index: 0;
+
+    transform: translateZ(0);
+    will-change: transform;
+    contain: paint;
 }
 
 * {
@@ -111,7 +134,6 @@ header {
     width: auto; 
     object-fit: contain; 
     aspect-ratio: 3/2; 
-    filter: drop-shadow(0 0 100px var(--bg-glow)); 
 }
 
 .brand h1 { 
@@ -148,6 +170,11 @@ header {
     background-color: #00A3FF !important;
     box-shadow: 0 0 8px #00A3FF !important;
     transform: translateY(-50%) scaleY(1) !important;
+}
+
+.navigation a:not([href*="youtube.html"]):not([href*="rps.html"])::before {
+    background-color: #00A3FF !important;
+    box-shadow: 0 0 8px #00A3FF !important;
 }
 
 .navigation { 
@@ -839,25 +866,6 @@ h2 { border-bottom: none; }
 .menu-btn:active {
     background: transparent; 
     box-shadow: none;
-}
-
-body::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(circle at 15% 10%,
-            color-mix(in srgb, var(--bg-glow) 18%, transparent) 0%,
-            transparent 35%),
-        radial-gradient(circle at 90% 85%,
-            color-mix(in srgb, var(--bg-glow) 12%, transparent) 0%,
-            transparent 30%);
-
-    z-index: 0;
 }
 
 #music-controls-mobile {

@@ -1,7 +1,7 @@
 body.theme-rps {
     --bg-glow: #00E640;
     --accent-color: #69f0ae;
-    --card-border: rgba(0, 230, 64, 0.4);
+    --card-border: rgba(0, 230, 64, 0.5);
     --nav-hover-bg: rgba(0, 230, 64, 0.1);
     
     --bg-dark: #021206;
@@ -9,9 +9,12 @@ body.theme-rps {
     --selection-color: #000000;
     
     --header-bg: rgba(2, 18, 6, 0.6);
-    --card-bg: rgba(10, 30, 15, 0.4);
+    --card-bg: rgba(10, 30, 15, 0.2);
     --overlay-bg: rgba(2, 8, 19, 0.3);
     --menu-bg: #041a0a;
+
+    --theme-base: #00E640;
+    --theme-base-rgb: 0, 230, 64;
 }
 
 body.light-theme.theme-rps {
@@ -23,6 +26,9 @@ body.light-theme.theme-rps {
     --card-bg: rgba(230, 255, 235, 0.7);
     --overlay-bg: rgba(245, 250, 255, 0.3);
     --menu-bg: #f5fff7;
+
+    --theme-base: #00E640;
+    --theme-base-rgb: 0, 230, 64;
 }   
 
 body.theme-rps .nav-card:hover {

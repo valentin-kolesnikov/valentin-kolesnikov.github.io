@@ -79,11 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initVanillaTilt();
     initTocScrollSpy();
 
+    const backToTopBtn = document.getElementById('backToTop');
+
     window.addEventListener('scroll', () => {
         if (!tocScrollSpyTicking) {
             tocScrollSpyTicking = true;
             window.requestAnimationFrame(() => {
                 updateTocScrollSpy();
+                if (backToTopBtn) backToTopBtn.classList.toggle('active', window.scrollY > 400);
                 tocScrollSpyTicking = false;
             });
         }
@@ -141,12 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const backToTopBtn = document.getElementById('backToTop');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('active', window.scrollY > 400);
-        }, { passive: true });
-    }
 });
 
 function applyTranslations() {
