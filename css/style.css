@@ -18,7 +18,7 @@
 
 body.light-theme { 
     --bg-dark: #f5faff; 
-    --bg-glow: #33C1FF; 
+    --bg-glow: #00A3FF; 
     --text-color: #0b1521; 
     --header-bg: rgba(245, 250, 255, 0.85); 
     --accent-color: #2c3e50; 
@@ -30,7 +30,8 @@ body.light-theme {
     --selection-bg: var(--bg-glow);
     --selection-color: #ffffff;
     --overlay-bg: rgba(245, 250, 255, 0.3);
-    --theme-base: #33C1FF;
+
+    --theme-base: #00A3FF;
     --theme-base-rgb: 51, 193, 255;
 }
 
@@ -44,29 +45,6 @@ body.light-theme {
     background-color: var(--selection-bg);
     color: var(--selection-color);
     text-shadow: none;
-}
-
-body::before {
-    content: "";
-
-    position: fixed;
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(circle at 15% 10%,
-            color-mix(in srgb, var(--bg-glow) 18%, transparent) 0%,
-            transparent 35%),
-        radial-gradient(circle at 90% 85%,
-            color-mix(in srgb, var(--bg-glow) 12%, transparent) 0%,
-            transparent 30%);
-
-    z-index: 0;
-
-    transform: translateZ(0);
-    will-change: transform;
-    contain: paint;
 }
 
 * {
@@ -171,7 +149,6 @@ header {
     box-shadow: 0 0 8px #00A3FF !important;
     transform: translateY(-50%) scaleY(1) !important;
 }
-
 .navigation a:not([href*="youtube.html"]):not([href*="rps.html"])::before {
     background-color: #00A3FF !important;
     box-shadow: 0 0 8px #00A3FF !important;
@@ -439,10 +416,14 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
         0 0 0 1px var(--card-border),
         0 0 35px color-mix(in srgb, var(--bg-glow) 18%, transparent);
     padding: 40px; border-radius: 15px; 
-    margin-top: 20px; backdrop-filter: 
-    blur(5px); 
+    margin-top: 20px; 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
     position: relative; 
     z-index: 1; 
+
+    transform: translateZ(0);
+    will-change: transform;
 }
 .project-title { font-size: 3.5rem; padding-right: 160px; margin-bottom: 10px; color: var(--text-color); }
 .project-meta { color: var(--accent-color); margin-bottom: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; font-family: 'Segoe UI', sans-serif; }
@@ -868,6 +849,32 @@ h2 { border-bottom: none; }
     box-shadow: none;
 }
 
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 15% 10%,
+            color-mix(in srgb, var(--bg-glow) 9%, transparent) 0%,
+            transparent 48%),
+        radial-gradient(circle at 90% 85%,
+            color-mix(in srgb, var(--bg-glow) 6%, transparent) 0%,
+            transparent 42%);
+
+    z-index: 0;
+
+    /* Переводим слой на отдельный композитный слой GPU, чтобы браузер
+       не перерисовывал градиент синхронно с каждым кадром скролла —
+       именно это и вызывало дёрганье света */
+    transform: translateZ(0);
+    will-change: transform;
+    contain: paint;
+}
+
 #music-controls-mobile {
     display: flex;
     gap: 5px;
@@ -890,8 +897,11 @@ h2 { border-bottom: none; }
     border-radius: 15px;
     margin-bottom: 30px;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     overflow: hidden;
     scroll-margin-top: 110px;
+    transform: translateZ(0);
+    will-change: transform;
     transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
                 box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
