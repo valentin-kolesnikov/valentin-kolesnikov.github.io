@@ -418,8 +418,6 @@ main { flex: 1; padding: 100px 20px; max-width: 1000px; margin: 0 auto; width: 1
     position: relative; 
     z-index: 1; 
 
-    transform: translateZ(0);
-    will-change: transform;
     contain: paint;
 }
 .project-title { font-size: 3.5rem; padding-right: 160px; margin-bottom: 10px; color: var(--text-color); }
@@ -872,8 +870,6 @@ body::before {
 
     z-index: 0;
 
-    transform: translateZ(0);
-    will-change: transform;
     contain: paint;
 }
 
@@ -899,8 +895,6 @@ body::before {
     margin-bottom: 30px;
     overflow: hidden;
     scroll-margin-top: 110px;
-    transform: translateZ(0);
-    will-change: transform;
     contain: paint;
     transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
                 box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);

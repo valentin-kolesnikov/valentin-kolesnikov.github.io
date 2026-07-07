@@ -35,6 +35,7 @@ async function loadContent(url, pushState = true) {
             currentMain.style.opacity = '0';
 
             setTimeout(() => {
+                removerVanillaTilt(currentMain);
                 currentMain.innerHTML = newMain.innerHTML;
                 document.title = doc.title;
                 
@@ -373,8 +374,18 @@ function updateUI(isPlaying) {
     }
 }
 
+function removerVanillaTilt(scope) {
+    if (!scope) return;
+    scope.querySelectorAll(".nav-card").forEach(card => {
+        if (card.vanillaTilt) {
+            card.vanillaTilt.destroy();
+        }
+    });
+}
+
 function initVanillaTilt() {
     if (typeof VanillaTilt !== 'undefined') {
+        removerVanillaTilt(document);
         const cards = document.querySelectorAll(".nav-card");
         if (cards.length > 0) {
             VanillaTilt.init(cards, {
@@ -384,7 +395,8 @@ function initVanillaTilt() {
                 "max-glare": 0.2,
                 scale: 1.02,
                 perspective: 1200,
-                easing: "cubic-bezier(0.25, 0.8, 0.25, 1)"
+                easing: "cubic-bezier(0.25, 0.8, 0.25, 1)",
+                gyroscope: false
             });
         }
     }
